@@ -1,9 +1,9 @@
 import { Icon } from '@iconify/react';
 
-const CardInline = ({ title, subtitle, icon }) => {
+const CardInline = ({ title, subtitle, icon, url }) => {
   return (
     <>
-      <a href={`https://${title}`} target='_blank' rel='noreferrer'>
+      <a href={url} target='_blank' rel='noreferrer'>
         <div className='p-4 bg-white flex items-center justify-between rounded-2xl shadow-card cursor-pointer'>
           <div className='flex items-center'>
             <div className='p-2 bg-primary-sub rounded-full text-primary-base'>

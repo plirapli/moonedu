@@ -4,17 +4,20 @@ import Avatar from '../assets/3d_avatar.png';
 function Profile() {
   const contacts = [
     {
-      url: 'plirapli.vercel.app/',
+      name: 'plirapli.vercel.app/',
+      url: 'https://plirapli.vercel.app/',
       type: 'personal website',
       iconPath: 'mdi:web',
     },
     {
-      url: 'github.com/plirapli/',
+      name: 'Plirapli',
+      url: 'https://github.com/plirapli/',
       type: 'github',
       iconPath: 'bxl:github',
     },
     {
-      url: 'linkedin.com/in/mrafli/',
+      name: 'Muhammad Rafli',
+      url: 'https://linkedin.com/in/mrafli/',
       type: 'linkedin',
       iconPath: 'bxl:linkedin-square',
     },
@@ -36,9 +39,11 @@ function Profile() {
         <div className='mt-4 grid grid-cols-1 gap-4'>
           {contacts.map((contact, i) => (
             <CardInline
-              title={contact.url}
+              key={i}
+              title={contact.name}
               subtitle={contact.type}
               icon={contact.iconPath}
+              url={contact.url}
             />
           ))}
         </div>
