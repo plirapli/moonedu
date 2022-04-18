@@ -34,7 +34,7 @@ function NavBar(props) {
         <ul className='flex justify-evenly'>
           {menus.map((menu, i) => (
             <NavButton
-              key={menu.id}
+              key={i}
               title={menu.title}
               icInactive={menu.icInactive}
               icActive={menu.icActive}
