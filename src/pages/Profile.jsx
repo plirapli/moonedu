@@ -25,7 +25,7 @@ function Profile() {
       <div className='p-5'>
         <h1 className='text-heading text-black text-center'>Profile</h1>
       </div>
-      <div className='flex-1 mt-34 p-5 bg-primary-gradient rounded-t-large'>
+      <div className='flex-1 mt-34 p-5 bg-primary-gradient rounded-t-large shadow-container'>
         <div className='w-full flex justify-center -mt-40'>
           <img className='w-52' src={Avatar} alt='' />
         </div>

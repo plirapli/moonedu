@@ -36,7 +36,7 @@ function NavBar() {
   ];
 
   return (
-    <div className='bg-white'>
+    <div className='bg-white shadow-navBar'>
       <nav>
         <ul className='flex justify-evenly'>
           {menus.map((menu, i) => (

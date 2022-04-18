@@ -32,7 +32,7 @@ function Home() {
 
   return (
     <div>
-      <div className='p-5 bg-gradient-to-br from-primary-gradient to-primary-base rounded-b-large'>
+      <div className='p-5 bg-gradient-to-br from-primary-gradient to-primary-base rounded-b-large shadow-md'>
         <div className='flex justify-between items-center'>
           <div className='text-white'>
             <h1 className='text-heading'>Hello,</h1>
@@ -50,7 +50,9 @@ function Home() {
       <div className='mt-4 p-5'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading text-black'>Explore Categories</h1>
-          <p className='text-subtext text-primary-base'>See all</p>
+          <p className='text-subtext text-primary-base underline cursor-pointer'>
+            See all
+          </p>
         </div>
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>

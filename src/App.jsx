@@ -7,7 +7,7 @@ import Layout from './pages/Layout';
 function App() {
   return (
     <div className='min-h-screen flex justify-center font-poppins'>
-      <div className='w-full max-w-screen-sm bg-primary-bg flex flex-col justify-between'>
+      <div className='w-full max-w-screen-sm bg-primary-bg flex flex-col justify-between overflow-hidden'>
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
