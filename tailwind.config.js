@@ -18,6 +18,9 @@ module.exports = {
         secondary: '#F8AE2D',
         gray: '#9A9A9A',
       },
+      margin: {
+        34: '8.5rem',
+      },
       borderRadius: {
         large: '3rem',
       },
