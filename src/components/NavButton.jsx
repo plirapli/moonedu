@@ -5,7 +5,6 @@ const NavButton = ({
   title,
   icInactive,
   icActive,
-  id,
   path,
   activeMenu,
   setActiveMenu,
@@ -13,11 +12,11 @@ const NavButton = ({
   let navigate = useNavigate();
 
   const redirect = (path) => {
-    setActiveMenu(() => id);
+    setActiveMenu(() => path);
     navigate(path);
   };
 
-  const iconPath = activeMenu === id ? icActive : icInactive;
+  const iconPath = activeMenu === path ? icActive : icInactive;
 
   return (
     <li

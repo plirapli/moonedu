@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 
-function Layout() {
+function Layout(props) {
   return (
     <>
       <Outlet />
-      <NavBar />
+      <NavBar
+        activeMenu={props.activeMenu}
+        setActiveMenu={props.setActiveMenu}
+      />
     </>
   );
 }

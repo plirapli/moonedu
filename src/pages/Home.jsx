@@ -6,7 +6,7 @@ import Photography from '../assets/photo.png';
 import Paint from '../assets/painting.png';
 import Marketing from '../assets/marketing.png';
 
-function Home() {
+function Home(props) {
   const courses = [
     {
       title: 'Sports',
