@@ -22,10 +22,13 @@ const NavButton = ({
     <li
       onClick={() => redirect(path)}
       className='w-full p-2 flex flex-col justify-center items-center cursor-pointer'>
-      <div className='text-gray'>
+      <div className={activeMenu === path ? 'text-primary-base' : 'text-gray'}>
         <Icon icon={iconPath} width='28' />
       </div>
-      <p className='mt-1 text-smallest font-medium text-gray'>
+      <p
+        className={`mt-1 text-smallest font-medium ${
+          activeMenu === path ? 'text-primary-base' : 'text-gray'
+        }`}>
         {title || `Menu`}
       </p>
     </li>

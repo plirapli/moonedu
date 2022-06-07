@@ -9,10 +9,13 @@
   .text-heading {
     @apply text-2xl font-semibold;
   }
+  .text-heading-2 {
+    @apply text-xl font-semibold;
+  }
   .text-subtext {
-    @apply text-xs;
+    @apply text-sm;
   }
   .text-smallest {
-    @apply text-tiny font-medium;
+    @apply text-xs font-medium;
   }
 }

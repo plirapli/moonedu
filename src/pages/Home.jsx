@@ -1,13 +1,18 @@
 import { Icon } from '@iconify/react';
+
+// Comp
 import CardSquare from '../components/CardSquare';
 import SearchBar from '../components/SearchBar';
+import CardVerticalImage from '../components/CardVerticalImage';
+
+// Img
 import Sport from '../assets/sport.png';
 import Photography from '../assets/photo.png';
 import Paint from '../assets/painting.png';
 import Marketing from '../assets/marketing.png';
 
 function Home(props) {
-  const courses = [
+  const dCategories = [
     {
       title: 'Sports',
       subTitle: '20 Courses',
@@ -30,38 +35,88 @@ function Home(props) {
     },
   ];
 
+  const dCourses = [
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+    },
+  ];
+
   return (
-    <div>
-      <div className='p-5 bg-gradient-to-br from-primary-gradient to-primary-base rounded-b-large shadow-md'>
+    <div className='w-full mt-4'>
+      {/* HEADER */}
+      <div className='px-6'>
         <div className='flex justify-between items-center'>
-          <div className='text-white'>
-            <h1 className='text-heading'>Hello,</h1>
-            <p>Good Morning</p>
+          <h1 className='text-heading'>Hi, Rafli</h1>
+          <div className=''>
+            <button className='p-2'>
+              <Icon icon='bx:cart' width='28' />
+            </button>
+            <button className='p-2'>
+              <Icon icon='bx:bell' width='28' />
+            </button>
           </div>
-          <button className='p-2 bg-primary-sub bg-opacity-75 rounded-full'>
-            <Icon icon='clarity:bell-solid' color='white' width='28' />
-          </button>
         </div>
-        <div className='mt-8'>
+        <div className='mt-4'>
           <SearchBar />
         </div>
       </div>
 
-      <div className='mt-4 p-5'>
+      {/* Recommended for you page */}
+      <div className='mt-6'>
+        <div className='px-6 flex justify-between'>
+          <h1 className='text-heading-2'>Recommended for you</h1>
+          <p className='text-subtext text-primary-base'>See all</p>
+        </div>
+        <div className='px-6 mt-2 flex gap-4 overflow-x-auto'>
+          {dCourses.map((dCourse, i) => (
+            <CardVerticalImage
+              key={i}
+              title={dCourse.title}
+              lSubtext={dCourse.rating}
+              rSubtext={`Rp${dCourse.price},-`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Categories */}
+      <div className='mt-5 px-6 pb-6'>
         <div className='flex justify-between items-center'>
-          <h1 className='text-heading text-black'>Explore Categories</h1>
-          <p className='text-subtext text-primary-base underline cursor-pointer'>
+          <h1 className='text-heading-2 text-black'>Explore Categories</h1>
+          <p className='text-subtext text-primary-base cursor-pointer'>
             See all
           </p>
         </div>
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>
-            {courses.map((course, i) => (
+            {dCategories.map((dCat, i) => (
               <CardSquare
                 key={i}
-                title={course.title}
-                subTitle={course.subTitle}
-                iconPath={course.iconPath}
+                title={dCat.title}
+                subTitle={dCat.subTitle}
+                iconPath={dCat.iconPath}
               />
             ))}
           </div>

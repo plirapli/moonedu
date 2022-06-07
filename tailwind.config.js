@@ -5,8 +5,8 @@ module.exports = {
       poppins: ['Poppins', 'sans-serif'],
     },
     extend: {
-      fontSize: {
-        tiny: '0.5rem',
+      width: {
+        45: '11.25rem',
       },
       colors: {
         primary: {
@@ -15,7 +15,10 @@ module.exports = {
           sub: '#E4DDFD',
           bg: '#FAF9FF',
         },
-        secondary: '#F8AE2D',
+        secondary: {
+          base: '#F8AE2D',
+          sub: '#FEE9C5',
+        },
         gray: '#9A9A9A',
       },
       margin: {

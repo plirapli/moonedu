@@ -1,14 +1,15 @@
 import { Icon } from '@iconify/react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const searchHandler = (e) => {
     e.preventDefault();
   };
 
   return (
     <>
+      <div className='font-medium'>{props.text || 'Search'}</div>
       <form
-        className='py-3 px-5 bg-white flex justify-between rounded-full'
+        className='mt-2 py-3 px-5 bg-white flex justify-between rounded-xl shadow'
         action=''>
         <div className='flex items-center w-full'>
           <button
@@ -24,7 +25,7 @@ const SearchBar = () => {
             placeholder='Search your topic'
           />
         </div>
-        <span className='ml-2 text-primary-base'>
+        <span className='ml-2 text-gray'>
           <Icon icon='fluent:mic-16-regular' width='28' />
         </span>
       </form>
