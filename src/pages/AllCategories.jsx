@@ -1,5 +1,3 @@
-import { Icon } from '@iconify/react';
-
 // Comp
 import TopNavBar from '../components/TopNavBar';
 import CardSquare from '../components/CardSquare';
@@ -63,11 +61,9 @@ const AllCategories = () => {
   return (
     <div className='w-full mt-4'>
       {/* HEADER */}
-      <div className='px-6'>
-        <TopNavBar menuName={menuName} />
-        <div className='mt-4'>
-          <SearchBar />
-        </div>
+      <TopNavBar menuName={menuName} />
+      <div className='px-6 mt-4'>
+        <SearchBar />
       </div>
 
       {/* Categories */}
