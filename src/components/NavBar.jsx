@@ -3,28 +3,32 @@ import NavButton from './NavButton';
 function NavBar(props) {
   const menus = [
     {
+      id: 1,
       title: 'Home',
       icInactive: 'fluent:home-16-regular',
       icActive: 'fluent:home-16-filled',
-      path: '/',
+      path: ['/', '/all-categories'],
     },
     {
+      id: 2,
       title: 'My Learning',
       icInactive: 'ep:video-play',
       icActive: 'ci:play-circle-filled',
-      path: '/learning',
+      path: ['/my-learning'],
     },
     {
+      id: 3,
       title: 'Wishlist',
       icInactive: 'ant-design:heart-outlined',
       icActive: 'ant-design:heart-filled',
-      path: '/wishlist',
+      path: ['/wishlist'],
     },
     {
+      id: 4,
       title: 'Profile',
       icInactive: 'clarity:avatar-line',
       icActive: 'clarity:avatar-solid',
-      path: '/profile',
+      path: ['/profile'],
     },
   ];
 

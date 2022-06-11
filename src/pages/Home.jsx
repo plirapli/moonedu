@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 // Comp
 import CardSquare from '../components/CardSquare';
@@ -6,10 +7,10 @@ import SearchBar from '../components/SearchBar';
 import CardVerticalImage from '../components/CardVerticalImage';
 
 // Img
-import Sport from '../assets/sport.png';
-import Photography from '../assets/photo.png';
-import Paint from '../assets/painting.png';
-import Marketing from '../assets/marketing.png';
+import Sport from '../assets/icon/sport.png';
+import Photography from '../assets/icon/photo.png';
+import Paint from '../assets/icon/painting.png';
+import Dashboard from '../assets/icon/dashboard.png';
 
 function Home(props) {
   const dCategories = [
@@ -29,9 +30,9 @@ function Home(props) {
       iconPath: Paint,
     },
     {
-      title: 'Marketing',
+      title: 'Accounting',
       subTitle: '16 Courses',
-      iconPath: Marketing,
+      iconPath: Dashboard,
     },
   ];
 
@@ -89,7 +90,7 @@ function Home(props) {
           <h1 className='text-heading-2'>Recommended for you</h1>
           <p className='text-subtext text-primary-base'>See all</p>
         </div>
-        <div className='px-6 mt-2 flex gap-4 overflow-x-auto'>
+        <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll'>
           {dCourses.map((dCourse, i) => (
             <CardVerticalImage
               key={i}
@@ -105,9 +106,11 @@ function Home(props) {
       <div className='mt-5 px-6 pb-6'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading-2 text-black'>Explore Categories</h1>
-          <p className='text-subtext text-primary-base cursor-pointer'>
-            See all
-          </p>
+          <Link to='/all-categories'>
+            <p className='text-subtext text-primary-base cursor-pointer'>
+              See all
+            </p>
+          </Link>
         </div>
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>

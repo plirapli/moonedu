@@ -7,7 +7,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <div className='font-medium'>{props.text || 'Search'}</div>
+      <div className='font-medium'>{props.text || 'Search Topic'}</div>
       <form
         className='mt-2 py-3 px-5 bg-white flex justify-between rounded-xl shadow'
         action=''>
