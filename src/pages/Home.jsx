@@ -6,36 +6,7 @@ import CardSquare from '../components/CardSquare';
 import SearchBar from '../components/SearchBar';
 import CardVerticalImage from '../components/CardVerticalImage';
 
-// Img
-import Sport from '../assets/icon/sport.png';
-import Photography from '../assets/icon/photo.png';
-import Paint from '../assets/icon/painting.png';
-import Dashboard from '../assets/icon/dashboard.png';
-
 function Home(props) {
-  const dCategories = [
-    {
-      title: 'Sports',
-      subTitle: '20 Courses',
-      iconPath: Sport,
-    },
-    {
-      title: 'Photography',
-      subTitle: '18 Courses',
-      iconPath: Photography,
-    },
-    {
-      title: 'Graphic Design',
-      subTitle: '10 Courses',
-      iconPath: Paint,
-    },
-    {
-      title: 'Accounting',
-      subTitle: '16 Courses',
-      iconPath: Dashboard,
-    },
-  ];
-
   const dCourses = [
     {
       title: 'Figma UI/UX Design Essential',
@@ -63,6 +34,8 @@ function Home(props) {
       price: 135000,
     },
   ];
+
+  const dataDisplay = props.categories.slice(0, 4);
 
   return (
     <div className='w-full mt-4'>
@@ -114,7 +87,7 @@ function Home(props) {
         </div>
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>
-            {dCategories.map((dCat, i) => (
+            {dataDisplay.map((dCat, i) => (
               <CardSquare
                 key={i}
                 title={dCat.title}
