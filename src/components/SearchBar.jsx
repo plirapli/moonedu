@@ -22,7 +22,7 @@ const SearchBar = (props) => {
           <input
             className='ml-2 outline-none w-full'
             type='text'
-            placeholder='Search your topic'
+            placeholder={props.placeholder || 'Search Courses'}
           />
         </div>
         <span className='ml-2 text-gray'>

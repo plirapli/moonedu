@@ -9,9 +9,9 @@ const AllCategories = (props) => {
   return (
     <div className='w-full mt-4'>
       {/* HEADER */}
-      <TopNavBar menuName={menuName} />
+      <TopNavBar buttonL={1} buttonR={1} menuName={menuName} />
       <div className='px-6 mt-4'>
-        <SearchBar />
+        <SearchBar placeholder='Search Categories' />
       </div>
 
       {/* Categories */}

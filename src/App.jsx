@@ -10,6 +10,7 @@ import Puzzle from './assets/icon/puzzle.png';
 import Marketing from './assets/icon/megaphone.png';
 import Wallet from './assets/icon/wallet.png';
 import Fishing from './assets/icon/fishing.png';
+import Wishlist from './pages/Wishlist';
 
 // Comp
 const Home = lazy(() => import('./pages/Home'));
@@ -67,30 +68,35 @@ function App() {
 
   const [courses, setCourses] = useState([
     {
+      id: 1,
       title: 'Figma UI/UX Design Essential',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
     },
     {
+      id: 2,
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: true,
+    },
+    {
+      id: 3,
       title: 'Figma UI/UX Design Essential',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
     },
     {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-      wishlist: true,
-    },
-    {
+      id: 4,
       title: 'Figma UI/UX Design Essential',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
     },
     {
+      id: 5,
       title: 'Figma UI/UX Design Essential',
       rating: '4.8 (18.1k)',
       price: 135000,
@@ -118,6 +124,10 @@ function App() {
               <Route
                 path='all-categories'
                 element={<AllCategories categories={categories} />}
+              />
+              <Route
+                path='wishlist'
+                element={<Wishlist courses={courses} setCourses={setCourses} />}
               />
               <Route path='profile' element={<Profile />} />
               <Route path='*' element={<NoMatch />} />

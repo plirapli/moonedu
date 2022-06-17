@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
 const TopNavBar = (props) => {
-  const isActiveL = props.isOnL || 1;
-  const isActiveR = props.isOnR || 1;
+  const isActiveL = props.buttonL || 0;
+  const isActiveR = props.buttonR || 0;
 
   let navigate = useNavigate();
   const backButton = () => navigate(-1);
