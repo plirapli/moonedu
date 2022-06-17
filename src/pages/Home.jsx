@@ -7,35 +7,8 @@ import SearchBar from '../components/SearchBar';
 import CardVerticalImage from '../components/CardVerticalImage';
 
 function Home(props) {
-  const dCourses = [
-    {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-    },
-    {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-    },
-    {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-    },
-    {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-    },
-    {
-      title: 'Figma UI/UX Design Essential',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-    },
-  ];
-
-  const dataDisplay = props.categories.slice(0, 4);
+  const dispCourses = props.courses;
+  const dispCategories = props.categories.slice(0, 4);
 
   return (
     <div className='w-full mt-4'>
@@ -64,7 +37,7 @@ function Home(props) {
           <p className='text-subtext text-primary-base'>See all</p>
         </div>
         <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll'>
-          {dCourses.map((dCourse, i) => (
+          {dispCourses.map((dCourse, i) => (
             <CardVerticalImage
               key={i}
               title={dCourse.title}
@@ -87,7 +60,7 @@ function Home(props) {
         </div>
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>
-            {dataDisplay.map((dCat, i) => (
+            {dispCategories.map((dCat, i) => (
               <CardSquare
                 key={i}
                 title={dCat.title}

@@ -65,6 +65,39 @@ function App() {
     },
   ]);
 
+  const [courses, setCourses] = useState([
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: true,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: true,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: true,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: false,
+    },
+    {
+      title: 'Figma UI/UX Design Essential',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      wishlist: false,
+    },
+  ]);
+
   const location = useLocation();
   useEffect(() => setActiveMenu(() => location.pathname), []);
 
@@ -78,7 +111,10 @@ function App() {
               element={
                 <Layout activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
               }>
-              <Route index element={<Home categories={categories} />} />
+              <Route
+                index
+                element={<Home categories={categories} courses={courses} />}
+              />
               <Route
                 path='all-categories'
                 element={<AllCategories categories={categories} />}
