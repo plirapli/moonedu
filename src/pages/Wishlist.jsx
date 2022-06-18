@@ -49,7 +49,7 @@ const Wishlist = (props) => {
             </p>
           </div>
           <div className='w-full mt-5'>
-            <Link to='/all-categories'>
+            <Link to='/categories/all'>
               <BtnText text='Browse Categories' />
             </Link>
           </div>

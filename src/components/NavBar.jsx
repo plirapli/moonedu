@@ -1,4 +1,5 @@
-import NavButton from './NavButton';
+import { Icon } from '@iconify/react';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar(props) {
   const menus = [
@@ -7,7 +8,7 @@ function NavBar(props) {
       title: 'Home',
       icInactive: 'fluent:home-16-regular',
       icActive: 'fluent:home-16-filled',
-      path: ['/', '/all-categories'],
+      path: ['/', '/categories/'],
     },
     {
       id: 2,
@@ -52,5 +53,44 @@ function NavBar(props) {
     </div>
   );
 }
+
+const NavButton = ({
+  title,
+  icInactive,
+  icActive,
+  path,
+  activeMenu,
+  setActiveMenu,
+}) => {
+  let navigate = useNavigate();
+
+  const redirect = (path) => {
+    setActiveMenu(() => path[0]);
+    navigate(path[0]);
+  };
+
+  const isActive = () => {
+    return path.some((p) => {
+      let slash = p.split('').filter((pSlash) => pSlash === '/').length;
+      return slash > 1 ? activeMenu.includes(p) : p === activeMenu;
+    });
+  };
+
+  return (
+    <li
+      onClick={() => redirect(path)}
+      className='w-full p-1 flex flex-col justify-center items-center cursor-pointer'>
+      <div className={isActive() ? 'text-primary-base' : 'text-gray'}>
+        <Icon icon={isActive() ? icActive : icInactive} width='24' />
+      </div>
+      <p
+        className={`mt-1 text-smallest font-medium ${
+          isActive() ? 'text-primary-base' : 'text-gray'
+        }`}>
+        {title || `Menu`}
+      </p>
+    </li>
+  );
+};
 
 export default NavBar;

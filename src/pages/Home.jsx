@@ -52,7 +52,7 @@ function Home(props) {
       <div className='mt-5 px-6 pb-6'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading-2 text-black'>Explore Categories</h1>
-          <Link to='/all-categories'>
+          <Link to='/categories/all'>
             <p className='text-subtext text-primary-base cursor-pointer'>
               See all
             </p>

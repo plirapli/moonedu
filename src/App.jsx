@@ -23,7 +23,7 @@ function App() {
   const [activeMenu, setActiveMenu] = useState('');
 
   // Dummy data (temporary)
-  const [categories, setCategories] = useState([
+  const categories = [
     {
       title: 'Sports',
       subTitle: '20 Courses',
@@ -64,7 +64,7 @@ function App() {
       subTitle: '4 Courses',
       iconPath: Fishing,
     },
-  ]);
+  ];
 
   const [courses, setCourses] = useState([
     {
@@ -105,7 +105,7 @@ function App() {
   ]);
 
   const location = useLocation();
-  useEffect(() => setActiveMenu(() => location.pathname), []);
+  useEffect(() => setActiveMenu(() => location.pathname), [location]);
 
   return (
     <div className='min-h-screen flex justify-center font-poppins'>
@@ -122,7 +122,7 @@ function App() {
                 element={<Home categories={categories} courses={courses} />}
               />
               <Route
-                path='all-categories'
+                path='categories/all'
                 element={<AllCategories categories={categories} />}
               />
               <Route
