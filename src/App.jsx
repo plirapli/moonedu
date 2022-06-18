@@ -15,6 +15,7 @@ import Fishing from './assets/icon/fishing.png';
 const Home = lazy(() => import('./pages/Home'));
 const Profile = lazy(() => import('./pages/Profile'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
+const Courses = lazy(() => import('./pages/Courses'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
 const Layout = lazy(() => import('./pages/Layout'));
@@ -25,41 +26,49 @@ function App() {
   // Dummy data (temporary)
   const categories = [
     {
+      id: 'sports',
       title: 'Sports',
       subTitle: '20 Courses',
       iconPath: Sport,
     },
     {
+      id: 'photography',
       title: 'Photography',
       subTitle: '18 Courses',
       iconPath: Photography,
     },
     {
+      id: 'graphic-design',
       title: 'Graphic Design',
       subTitle: '10 Courses',
       iconPath: Paint,
     },
     {
+      id: 'accounting',
       title: 'Accounting',
       subTitle: '16 Courses',
       iconPath: Dashboard,
     },
     {
+      id: 'logic',
       title: 'Logic',
       subTitle: '8 Courses',
       iconPath: Puzzle,
     },
     {
+      id: 'marketing',
       title: 'Marketing',
       subTitle: '21 Courses',
       iconPath: Marketing,
     },
     {
+      id: 'finance',
       title: 'Finance',
       subTitle: '14 Courses',
       iconPath: Wallet,
     },
     {
+      id: 'fishing',
       title: 'Fishing',
       subTitle: '4 Courses',
       iconPath: Fishing,
@@ -70,6 +79,7 @@ function App() {
     {
       id: 1,
       title: 'Figma UI/UX Design Essential',
+      categories: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -77,6 +87,7 @@ function App() {
     {
       id: 2,
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      categories: 'sports',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -84,6 +95,7 @@ function App() {
     {
       id: 3,
       title: 'Figma UI/UX Design Essential',
+      categories: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -91,6 +103,7 @@ function App() {
     {
       id: 4,
       title: 'Figma UI/UX Design Essential',
+      categories: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
@@ -98,6 +111,7 @@ function App() {
     {
       id: 5,
       title: 'Figma UI/UX Design Essential',
+      categories: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
@@ -122,8 +136,12 @@ function App() {
                 element={<Home categories={categories} courses={courses} />}
               />
               <Route
-                path='categories/all'
+                path='category/all'
                 element={<AllCategories categories={categories} />}
+              />
+              <Route
+                path='category/:id'
+                element={<Courses categories={categories} courses={courses} />}
               />
               <Route
                 path='wishlist'

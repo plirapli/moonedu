@@ -8,7 +8,7 @@ function NavBar(props) {
       title: 'Home',
       icInactive: 'fluent:home-16-regular',
       icActive: 'fluent:home-16-filled',
-      path: ['/', '/categories/'],
+      path: ['/', '/category/'],
     },
     {
       id: 2,
