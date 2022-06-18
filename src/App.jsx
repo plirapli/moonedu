@@ -79,7 +79,7 @@ function App() {
     {
       id: 1,
       title: 'Figma UI/UX Design Essential',
-      categories: 'graphic-design',
+      category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -87,7 +87,7 @@ function App() {
     {
       id: 2,
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      categories: 'sports',
+      category: 'sports',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -95,7 +95,7 @@ function App() {
     {
       id: 3,
       title: 'Figma UI/UX Design Essential',
-      categories: 'graphic-design',
+      category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: true,
@@ -103,7 +103,7 @@ function App() {
     {
       id: 4,
       title: 'Figma UI/UX Design Essential',
-      categories: 'graphic-design',
+      category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
@@ -111,7 +111,7 @@ function App() {
     {
       id: 5,
       title: 'Figma UI/UX Design Essential',
-      categories: 'graphic-design',
+      category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
@@ -141,7 +141,13 @@ function App() {
               />
               <Route
                 path='category/:id'
-                element={<Courses categories={categories} courses={courses} />}
+                element={
+                  <Courses
+                    categories={categories}
+                    courses={courses}
+                    setCourses={setCourses}
+                  />
+                }
               />
               <Route
                 path='wishlist'

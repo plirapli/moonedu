@@ -7,7 +7,7 @@ const HorizontalWImages = (props) => {
   const btnHandler = () =>
     props.setState(
       props.items.map((item) =>
-        item.id === props.data.id ? { ...item, wishlist: false } : item
+        item.id === props.data.id ? { ...item, wishlist: !item.wishlist } : item
       )
     );
 

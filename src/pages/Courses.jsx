@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import TopNavBar from '../components/TopNavBar';
 import SearchBar from '../components/SearchBar';
 import HorizontalWImages from '../components/HorizontalWImages';
+import BtnText from '../components/BtnText';
 
 const Courses = (props) => {
   const { id } = useParams();
@@ -20,6 +21,11 @@ const Courses = (props) => {
       <TopNavBar buttonL={1} buttonR={1} menuName={menuName} />
       <div className='px-6 mt-4'>
         <SearchBar />
+      </div>
+
+      <div className='mt-4 px-6 grid grid-cols-2 gap-2'>
+        <BtnText text='Sort By' btnColor='bg-white' txtColor='text-black' />
+        <BtnText text='Filter' btnColor='bg-white' txtColor='text-black' />
       </div>
 
       {/* Courses */}
