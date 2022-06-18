@@ -61,12 +61,14 @@ function Home(props) {
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>
             {dispCategories.map((dCat, i) => (
-              <CardSquare
-                key={i}
-                title={dCat.title}
-                subTitle={dCat.subTitle}
-                iconPath={dCat.iconPath}
-              />
+              <Link to={'/category/' + dCat.id}>
+                <CardSquare
+                  key={i}
+                  title={dCat.title}
+                  subTitle={dCat.subTitle}
+                  iconPath={dCat.iconPath}
+                />
+              </Link>
             ))}
           </div>
         </div>
