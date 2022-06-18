@@ -10,12 +10,12 @@ import Puzzle from './assets/icon/puzzle.png';
 import Marketing from './assets/icon/megaphone.png';
 import Wallet from './assets/icon/wallet.png';
 import Fishing from './assets/icon/fishing.png';
-import Wishlist from './pages/Wishlist';
 
 // Comp
 const Home = lazy(() => import('./pages/Home'));
 const Profile = lazy(() => import('./pages/Profile'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
+const Wishlist = lazy(() => import('./pages/Wishlist'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
 const Layout = lazy(() => import('./pages/Layout'));
 
