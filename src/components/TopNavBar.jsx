@@ -19,7 +19,7 @@ const TopNavBar = (props) => {
       <h1
         className={`
         ${isActiveL ? '' : 'ml-[4.25rem]'} ${isActiveR ? '' : 'mr-[4.25rem]'} 
-        w-full text-heading-2 text-center`}>
+        w-full text-heading-2 text-center truncate`}>
         {props.menuName || 'Menu Name'}
       </h1>
       <button

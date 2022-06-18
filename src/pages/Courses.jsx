@@ -33,15 +33,16 @@ const Courses = (props) => {
         <div className='mt-4 px-6 pb-6'>
           <div className='grid gap-3'>
             {dispCourses.map((course, i) => (
-              <HorizontalWImages
-                key={i}
-                data={course}
-                lSubtext={course.rating}
-                rSubtext={`Rp${course.price},-`}
-                boolState={course.wishlist}
-                setState={props.setCourses}
-                items={props.courses}
-              />
+              <Link key={i} to={'/course/' + course.id}>
+                <HorizontalWImages
+                  data={course}
+                  lSubtext={course.rating}
+                  rSubtext={`Rp${course.price},-`}
+                  boolState={course.wishlist}
+                  setState={props.setCourses}
+                  items={props.courses}
+                />
+              </Link>
             ))}
           </div>
         </div>

@@ -16,6 +16,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Profile = lazy(() => import('./pages/Profile'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
 const Courses = lazy(() => import('./pages/Courses'));
+const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
 const Layout = lazy(() => import('./pages/Layout'));
@@ -147,6 +148,12 @@ function App() {
                     courses={courses}
                     setCourses={setCourses}
                   />
+                }
+              />
+              <Route
+                path='course/:id'
+                element={
+                  <CourseDetail courses={courses} setCourses={setCourses} />
                 }
               />
               <Route
