@@ -39,7 +39,7 @@ function Home(props) {
         <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll'>
           {dispCourses.map((dCourse, i) => (
             <CardVerticalImage
-              key={i}
+              key={dCourse.id}
               title={dCourse.title}
               lSubtext={dCourse.rating}
               rSubtext={`Rp${dCourse.price},-`}
@@ -61,9 +61,8 @@ function Home(props) {
         <div className='mt-2'>
           <div className='grid grid-cols-2 gap-5'>
             {dispCategories.map((dCat, i) => (
-              <Link to={'/category/' + dCat.id}>
+              <Link key={dCat.id} to={'/category/' + dCat.id}>
                 <CardSquare
-                  key={i}
                   title={dCat.title}
                   subTitle={dCat.subTitle}
                   iconPath={dCat.iconPath}
