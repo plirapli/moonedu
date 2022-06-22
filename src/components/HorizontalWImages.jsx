@@ -4,12 +4,14 @@ import DefaultImg from '../assets/courses/uiux.jpg';
 const HorizontalWImages = (props) => {
   const boolState = props.boolState || 0;
 
-  const btnHandler = () =>
+  const btnHandler = (e) => {
+    e.stopPropagation();
     props.setState(
       props.items.map((item) =>
         item.id === props.data.id ? { ...item, wishlist: !item.wishlist } : item
       )
     );
+  };
 
   const iconSolid = 'bxs:heart';
   const iconOutline = 'bx:heart';
@@ -27,7 +29,11 @@ const HorizontalWImages = (props) => {
             <p className='w-full h-12 font-medium clamp'>
               {props.data.title || 'Lorem ipsum dolor sit amet'}
             </p>
-            <button onClick={btnHandler} className='p-2 text-red-500'>
+            <button
+              onClick={btnHandler}
+              className='
+                ml-2 p-2 text-red-500 
+                transition-all hover:bg-red-100 hover:rounded-full'>
               <Icon
                 icon={`${boolState ? iconSolid : iconOutline}`}
                 width='24'

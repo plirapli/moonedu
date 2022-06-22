@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -14,6 +14,11 @@ const Courses = (props) => {
   const dispCourses = props.courses.filter(
     (course) => course.category === category.id
   );
+
+  const navigate = useNavigate();
+  const btnHandler = (id) => {
+    navigate('/course/' + id);
+  };
 
   return (
     <div className='w-full mt-4'>
@@ -33,7 +38,10 @@ const Courses = (props) => {
         <div className='mt-4 px-6 pb-6'>
           <div className='grid gap-3'>
             {dispCourses.map((course, i) => (
-              <Link key={i} to={'/course/' + course.id}>
+              <div
+                key={i}
+                onClick={() => btnHandler(course.id)}
+                className='cursor-pointer'>
                 <HorizontalWImages
                   data={course}
                   lSubtext={course.rating}
@@ -42,7 +50,7 @@ const Courses = (props) => {
                   setState={props.setCourses}
                   items={props.courses}
                 />
-              </Link>
+              </div>
             ))}
           </div>
         </div>
