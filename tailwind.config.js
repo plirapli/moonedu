@@ -19,7 +19,6 @@ module.exports = {
           base: '#F8AE2D',
           sub: '#FEE9C5',
         },
-        gray: '#9A9A9A',
       },
       margin: {
         34: '8.5rem',
