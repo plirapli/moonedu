@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import DefaultImg from '../assets/courses/uiux.jpg';
 
-const HorizontalWImages = (props) => {
+const HorImg = (props) => {
   const boolState = props.boolState || 0;
 
   const btnHandler = (e) => {
@@ -26,7 +26,7 @@ const HorizontalWImages = (props) => {
         />
         <div className='px-3 py-2 flex-1 flex flex-col justify-center'>
           <div className='flex items-start'>
-            <p className='w-full h-12 font-medium clamp'>
+            <p className='w-full font-medium clamp'>
               {props.data.title || 'Lorem ipsum dolor sit amet'}
             </p>
             <button
@@ -53,4 +53,4 @@ const HorizontalWImages = (props) => {
   );
 };
 
-export default HorizontalWImages;
+export default HorImg;

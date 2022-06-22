@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 // Comp
 import TopNavBar from '../components/TopNavBar';
 import SearchBar from '../components/SearchBar';
-import HorizontalWImages from '../components/HorizontalWImages';
+import HorImg from '../components/HorImg';
 import BtnText from '../components/BtnText';
 
 const Courses = (props) => {
@@ -39,10 +39,10 @@ const Courses = (props) => {
           <div className='grid gap-3'>
             {dispCourses.map((course, i) => (
               <div
-                key={i}
+                key={course.id}
                 onClick={() => btnHandler(course.id)}
                 className='cursor-pointer'>
-                <HorizontalWImages
+                <HorImg
                   data={course}
                   lSubtext={course.rating}
                   rSubtext={`Rp${course.price},-`}

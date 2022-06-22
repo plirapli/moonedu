@@ -1,7 +1,7 @@
 // Comp
 import TopNavBar from '../components/TopNavBar';
 import SearchBar from '../components/SearchBar';
-import HorizontalWImages from '../components/HorizontalWImages';
+import HorImg from '../components/HorImg';
 import BtnText from '../components/BtnText';
 
 // Img
@@ -25,8 +25,8 @@ const Wishlist = (props) => {
         <div className='mt-4 px-6 pb-6'>
           <div className='grid gap-3'>
             {dispCourses.map((course, i) => (
-              <HorizontalWImages
-                key={i}
+              <HorImg
+                key={course.id}
                 data={course}
                 lSubtext={course.rating}
                 rSubtext={`Rp${course.price},-`}

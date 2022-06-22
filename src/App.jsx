@@ -20,6 +20,7 @@ const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
 const Layout = lazy(() => import('./pages/Layout'));
+const MyLearning = lazy(() => import('./pages/MyLearning'));
 
 function App() {
   const [activeMenu, setActiveMenu] = useState('');
@@ -75,7 +76,6 @@ function App() {
       iconPath: Fishing,
     },
   ];
-
   const [courses, setCourses] = useState([
     {
       id: 1,
@@ -160,6 +160,7 @@ function App() {
                 path='wishlist'
                 element={<Wishlist courses={courses} setCourses={setCourses} />}
               />
+              <Route path='my-learning' element={<MyLearning />} />
               <Route path='profile' element={<Profile />} />
               <Route path='*' element={<NoMatch />} />
             </Route>

@@ -15,7 +15,7 @@ function NavBar(props) {
       title: 'My Learning',
       icInactive: 'ep:video-play',
       icActive: 'ci:play-circle-filled',
-      path: ['/my-learning'],
+      path: ['/my-learning', '/my-learning/'],
     },
     {
       id: 3,
