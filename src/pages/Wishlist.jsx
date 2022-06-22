@@ -1,3 +1,6 @@
+// Lib
+import { Link } from 'react-router-dom';
+
 // Comp
 import TopNavBar from '../components/TopNavBar';
 import SearchBar from '../components/SearchBar';
@@ -6,7 +9,6 @@ import BtnText from '../components/BtnText';
 
 // Img
 import EmptyStates from '../assets/empty_wishlist.png';
-import { Link } from 'react-router-dom';
 
 const Wishlist = (props) => {
   const menuName = 'Wishlist';
@@ -38,6 +40,7 @@ const Wishlist = (props) => {
           </div>
         </div>
       )}
+
       {/* Empty State Handler */}
       {dispCourses.length <= 0 && (
         <div className='mt-16 px-6 pb-6 flex flex-col items-center'>
