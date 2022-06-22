@@ -6,6 +6,7 @@
 
 /* Styling */
 @layer components {
+  /* Typography */
   .text-heading {
     @apply text-2xl font-semibold;
   }
@@ -17,6 +18,11 @@
   }
   .text-smallest {
     @apply text-xs font-medium;
+  }
+
+  /* Styling */
+  .text-gray {
+    @apply text-black text-opacity-[35%]
   }
 }
 

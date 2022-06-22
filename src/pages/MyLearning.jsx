@@ -13,40 +13,39 @@ import EmptyStates from '../assets/empty_course.png';
 
 const MyLearning = () => {
   const [myCourse, setMyCourse] = useState([
-    // {
-    //   id: 1,
-    //   title: 'Figma UI/UX Design Essential',
-    //   category: 'graphic-design',
-    //   rating: '4.8 (18.1k)',
-    //   price: 135000,
-    //   favorite: true,
-    //   completed: 12,
-    //   chapterQty: 22,
-    // },
-    // {
-    //   id: 2,
-    //   title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    //   category: 'sports',
-    //   rating: '4.8 (18.1k)',
-    //   price: 135000,
-    //   favorite: false,
-    //   completed: 8,
-    //   chapterQty: 9,
-    // },
-    // {
-    //   id: 3,
-    //   title: 'How to be a bank robber 101',
-    //   category: 'accounting',
-    //   rating: '4.8 (18.1k)',
-    //   price: 135000,
-    //   favorite: true,
-    //   completed: 4,
-    //   chapterQty: 17,
-    // },
+    {
+      id: 1,
+      title: 'Figma UI/UX Design Essential',
+      category: 'graphic-design',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      favorite: true,
+      completed: 12,
+      chapterQty: 22,
+    },
+    {
+      id: 2,
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      category: 'sports',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      favorite: false,
+      completed: 8,
+      chapterQty: 9,
+    },
+    {
+      id: 3,
+      title: 'How to be a bank robber 101',
+      category: 'accounting',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      favorite: true,
+      completed: 4,
+      chapterQty: 17,
+    },
   ]);
 
   const favCourse = myCourse.filter((course) => course.favorite);
-  const otherCourse = myCourse.filter((course) => !course.favorite);
   const menuName = 'My Learning';
 
   return (
@@ -63,6 +62,11 @@ const MyLearning = () => {
           <section className='px-6 mt-4'>
             <p className='font-medium'>Favorites</p>
             <div className='mt-2 grid gap-3'>
+              {favCourse.length <= 0 && (
+                <p className='font-medium text-black text-opacity-30'>
+                  No favorite
+                </p>
+              )}
               {favCourse.map((course) => (
                 <div key={course.id} className='cursor-pointer'>
                   <HorImgProgressBar
@@ -79,7 +83,7 @@ const MyLearning = () => {
           <section className='px-6 mt-6'>
             <p className='font-medium'>All Courses</p>
             <div className='mt-2 grid gap-3'>
-              {otherCourse.map((course) => (
+              {myCourse.map((course) => (
                 <div key={course.id} className='cursor-pointer'>
                   <HorImgProgressBar
                     data={course}
@@ -94,7 +98,6 @@ const MyLearning = () => {
         </>
       )}
 
-      {/* Empty States Handler */}
       {/* Empty State Handler */}
       {myCourse.length <= 0 && (
         <div className='mt-4 px-6 pb-6 flex flex-col items-center'>
