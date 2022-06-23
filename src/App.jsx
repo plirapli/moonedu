@@ -12,6 +12,9 @@ import Wallet from './assets/icon/wallet.png';
 import Fishing from './assets/icon/fishing.png';
 
 // Comp
+const Layout = lazy(() => import('./pages/Layout'));
+const LayoutBuy = lazy(() => import('./pages/LayoutBuy'));
+
 const Home = lazy(() => import('./pages/Home'));
 const Profile = lazy(() => import('./pages/Profile'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
@@ -19,7 +22,6 @@ const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
-const Layout = lazy(() => import('./pages/Layout'));
 const MyLearning = lazy(() => import('./pages/MyLearning'));
 
 function App() {
@@ -151,18 +153,20 @@ function App() {
                 }
               />
               <Route
-                path='course/:id'
-                element={
-                  <CourseDetail courses={courses} setCourses={setCourses} />
-                }
-              />
-              <Route
                 path='wishlist'
                 element={<Wishlist courses={courses} setCourses={setCourses} />}
               />
               <Route path='my-learning' element={<MyLearning />} />
               <Route path='profile' element={<Profile />} />
               <Route path='*' element={<NoMatch />} />
+            </Route>
+            <Route path='/course/' element={<LayoutBuy />}>
+              <Route
+                path=':id'
+                element={
+                  <CourseDetail courses={courses} setCourses={setCourses} />
+                }
+              />
             </Route>
           </Routes>
         </Suspense>

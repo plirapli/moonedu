@@ -29,8 +29,8 @@ const Courses = (props) => {
       </div>
 
       <div className='mt-4 px-6 grid grid-cols-2 gap-2'>
-        <BtnText text='Sort By' btnColor='bg-white' txtColor='text-black' />
-        <BtnText text='Filter' btnColor='bg-white' txtColor='text-black' />
+        <BtnText text='Sort By' className='bg-white text-black' />
+        <BtnText text='Filter' className='bg-white text-black' />
       </div>
 
       {/* Courses */}

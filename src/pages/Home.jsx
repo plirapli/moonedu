@@ -12,7 +12,7 @@ function Home(props) {
 
   return (
     <div className='w-full mt-4 pb-6'>
-      {/* HEADER */}
+      {/* Header */}
       <div className='px-6'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading'>Hi, Rafli</h1>
