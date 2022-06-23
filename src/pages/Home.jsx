@@ -11,7 +11,7 @@ function Home(props) {
   const dispCategories = props.categories.slice(0, 4);
 
   return (
-    <div className='w-full mt-4'>
+    <div className='w-full mt-4 pb-6'>
       {/* HEADER */}
       <div className='px-6'>
         <div className='flex justify-between items-center'>
@@ -36,8 +36,8 @@ function Home(props) {
           <h1 className='text-heading-2'>Recommended for you</h1>
           <p className='text-subtext text-primary-base'>See all</p>
         </div>
-        <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll'>
-          {dispCourses.map((dCourse, i) => (
+        <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll pb-2'>
+          {dispCourses.map((dCourse) => (
             <CardVerticalImage
               key={dCourse.id}
               title={dCourse.title}
@@ -49,7 +49,7 @@ function Home(props) {
       </div>
 
       {/* Categories */}
-      <div className='mt-5 px-6 pb-6'>
+      <div className='mt-4 px-6'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading-2 text-black'>Explore Categories</h1>
           <Link to='/category/all'>
