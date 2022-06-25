@@ -82,9 +82,25 @@ function App() {
     {
       id: 1,
       title: 'Figma UI/UX Design Essential',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue arcu. Phasellus mollis pretium.',
       category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
+      courseList: [
+        { id: 1, title: 'Introduction', isLocked: false, duration: '02:18' },
+        {
+          id: 2,
+          title: 'What is UI/UX Design?',
+          isLocked: true,
+          duration: '18:46',
+        },
+        {
+          id: 3,
+          title: 'How to make a wireframe',
+          isLocked: true,
+          duration: '20:58',
+        },
+      ],
       wishlist: true,
     },
     {
