@@ -8,7 +8,6 @@ import BtnText from '../components/BtnText';
 import CircleIc from '../components/CircleIc';
 import PlaylistPlayer from '../components/PlaylistPlayer';
 import HorIc from '../components/HorIc';
-import BuyCTA from '../components/BuyCTA';
 
 const CourseDetail = (props) => {
   const [isPlaylist, setIsPlaylist] = useState(true);
