@@ -1,23 +1,26 @@
 import CircleIc from '../components/CircleIc';
 
-const PlaylistPlayer = ({ title, dur, ...props }) => {
+const PlaylistPlayer = ({ isBool, ...props }) => {
   const dummyText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit tes tes';
+  const title = props.title || dummyText;
+  const duration = props.duration || '00:00';
+  const icClassNameL = isBool ? 'bg-primary-sub text-primary-base' : '';
 
   return (
     <div className='px-4 py-[0.75rem] flex items-center'>
-      <CircleIc icon={props.iconL} className={props.icClassNameL} />
+      <CircleIc className={icClassNameL} />
       <div className='w-full mx-3 overflow-hidden'>
-        <p className='font-medium truncate'>{title || dummyText}</p>
-        <p className='text-subtext text-gray'>{dur || '00:00'}</p>
+        <p className='font-medium truncate'>{title}</p>
+        <p className='text-subtext text-gray'>{duration}</p>
       </div>
-      <CircleIc
-        icon={props.iconR}
-        className={`p-1 shadow-none ${
-          props.icClassNameR || 'bg-green-600 text-white'
-        }`}
-        size='16'
-      />
+      {isBool && (
+        <CircleIc
+          icon='bxs:lock-alt'
+          size='16'
+          className='p-1 shadow-none bg-secondary-sub text-secondary-base'
+        />
+      )}
     </div>
   );
 };

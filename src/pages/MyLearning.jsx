@@ -1,5 +1,4 @@
 // Lib
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Comp
@@ -11,46 +10,13 @@ import BtnText from '../components/BtnText';
 // Img
 import EmptyStates from '../assets/empty_course.png';
 
-const MyLearning = () => {
-  const [myCourse, setMyCourse] = useState([
-    {
-      id: 1,
-      title: 'Figma UI/UX Design Essential',
-      category: 'graphic-design',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-      favorite: true,
-      completed: 12,
-      chapterQty: 22,
-    },
-    {
-      id: 2,
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      category: 'sports',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-      favorite: false,
-      completed: 8,
-      chapterQty: 9,
-    },
-    {
-      id: 3,
-      title: 'How to be a bank robber 101',
-      category: 'accounting',
-      rating: '4.8 (18.1k)',
-      price: 135000,
-      favorite: true,
-      completed: 4,
-      chapterQty: 17,
-    },
-  ]);
-
-  const favCourse = myCourse.filter((course) => course.favorite);
+const MyLearning = (props) => {
+  const favCourse = props.myCourse.filter((course) => course.favorite);
   const menuName = 'My Learning';
 
   const btnHandler = (id) => {
-    setMyCourse(
-      myCourse.map((item) =>
+    props.setMyCourse(
+      props.myCourse.map((item) =>
         item.id === id ? { ...item, favorite: !item.favorite } : item
       )
     );
@@ -65,7 +31,7 @@ const MyLearning = () => {
       </div>
 
       {/* Favorites Section */}
-      {myCourse.length > 0 && (
+      {props.myCourse.length > 0 && (
         <>
           <section className='px-6 mt-4'>
             <p className='font-medium'>Favorites</p>
@@ -76,13 +42,13 @@ const MyLearning = () => {
                 </p>
               )}
               {favCourse.map((course) => (
-                <div key={course.id} className='cursor-pointer'>
+                <Link key={course.id} to={'/my-learning/' + course.id}>
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
                     btnHandler={btnHandler}
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </section>
@@ -90,7 +56,7 @@ const MyLearning = () => {
           <section className='px-6 mt-6'>
             <p className='font-medium'>All Courses</p>
             <div className='mt-2 grid gap-3'>
-              {myCourse.map((course) => (
+              {props.myCourse.map((course) => (
                 <div key={course.id} className='cursor-pointer'>
                   <HorImgProgressBar
                     data={course}
@@ -105,7 +71,7 @@ const MyLearning = () => {
       )}
 
       {/* Empty State Handler */}
-      {myCourse.length <= 0 && (
+      {props.myCourse.length <= 0 && (
         <div className='mt-4 px-6 pb-6 flex flex-col items-center'>
           <img className='w-56 h-56' src={EmptyStates} alt='' />
           <div className='mt-12 text-center'>

@@ -19,9 +19,8 @@ const AllCategories = (props) => {
       <div className='mt-5 px-6 pb-6'>
         <div className='grid grid-cols-2 gap-5'>
           {props.categories.map((dCat, i) => (
-            <Link to={'/category/' + dCat.id}>
+            <Link key={dCat.id} to={'/category/' + dCat.id}>
               <CardSquare
-                key={i}
                 title={dCat.title}
                 subTitle={dCat.subTitle}
                 iconPath={dCat.iconPath}

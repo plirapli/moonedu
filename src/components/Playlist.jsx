@@ -7,12 +7,8 @@ const Playlist = ({ items, ...props }) => {
         <PlaylistPlayer
           key={item.id}
           title={item.title}
-          icClassNameL={item.isLocked ? 'bg-primary-sub text-primary-base' : ''}
-          icClassNameR={
-            item.isLocked ? 'bg-secondary-sub text-secondary-base' : ''
-          }
-          iconR={item.isLocked ? 'bxs:lock-alt' : 'bi:check-lg'}
-          dur={item.duration}
+          duration={item.duration}
+          isBool={item.isLocked}
         />
       ))}
     </div>

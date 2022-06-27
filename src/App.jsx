@@ -22,8 +22,9 @@ const AllCategories = lazy(() => import('./pages/AllCategories'));
 const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
-const NoMatch = lazy(() => import('./pages/NoMatch'));
 const MyLearning = lazy(() => import('./pages/MyLearning'));
+const MyCourseDetail = lazy(() => import('./pages/MyCourseDetail'));
+const NoMatch = lazy(() => import('./pages/NoMatch'));
 
 function App() {
   const [activeMenu, setActiveMenu] = useState('');
@@ -104,6 +105,7 @@ function App() {
         },
       ],
       wishlist: true,
+      isBought: true,
     },
     {
       id: 2,
@@ -136,6 +138,55 @@ function App() {
       rating: '4.8 (18.1k)',
       price: 135000,
       wishlist: false,
+    },
+  ]);
+  const [myCourses, setMyCourses] = useState([
+    {
+      id: 1,
+      title: 'Figma UI/UX Design Essential',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue arcu. Phasellus mollis pretium.',
+      category: 'graphic-design',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      completed: 12,
+      chapterQty: 22,
+      courseList: [
+        { id: 1, title: 'Introduction', isLocked: false, duration: '02:18' },
+        {
+          id: 2,
+          title: 'What is UI/UX Design?',
+          isLocked: false,
+          duration: '18:46',
+        },
+        {
+          id: 3,
+          title: 'How to make a wireframe',
+          isLocked: false,
+          duration: '20:58',
+        },
+      ],
+      favorite: true,
+      isBought: true,
+    },
+    {
+      id: 2,
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      category: 'sports',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      favorite: false,
+      completed: 8,
+      chapterQty: 9,
+    },
+    {
+      id: 3,
+      title: 'How to be a bank robber 101',
+      category: 'accounting',
+      rating: '4.8 (18.1k)',
+      price: 135000,
+      favorite: true,
+      completed: 4,
+      chapterQty: 17,
     },
   ]);
 
@@ -174,7 +225,12 @@ function App() {
                 path='wishlist'
                 element={<Wishlist courses={courses} setCourses={setCourses} />}
               />
-              <Route path='my-learning' element={<MyLearning />} />
+              <Route
+                path='my-learning'
+                element={
+                  <MyLearning myCourse={myCourses} setMyCourse={setMyCourses} />
+                }
+              />
               <Route path='profile' element={<Profile />} />
               <Route path='*' element={<NoMatch />} />
             </Route>
@@ -186,6 +242,15 @@ function App() {
                 }
               />
             </Route>
+            <Route
+              path='/my-learning/:id'
+              element={
+                <MyCourseDetail
+                  myCourses={myCourses}
+                  setMyCourses={setMyCourses}
+                />
+              }
+            />
           </Routes>
         </Suspense>
       </div>
