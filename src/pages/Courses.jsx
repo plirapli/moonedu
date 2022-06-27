@@ -20,6 +20,13 @@ const Courses = (props) => {
     navigate('/course/' + id);
   };
 
+  const wishlistBtnHandler = (id) =>
+    props.setCourses(
+      props.courses.map((item) =>
+        item.id === id ? { ...item, wishlist: !item.wishlist } : item
+      )
+    );
+
   return (
     <div className='w-full mt-4'>
       {/* HEADER */}
@@ -47,8 +54,7 @@ const Courses = (props) => {
                   lSubtext={course.rating}
                   rSubtext={`Rp${course.price},-`}
                   boolState={course.wishlist}
-                  setState={props.setCourses}
-                  items={props.courses}
+                  btnHandler={wishlistBtnHandler}
                 />
               </div>
             ))}

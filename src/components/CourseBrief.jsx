@@ -1,25 +1,27 @@
 import { Icon } from '@iconify/react';
 
 const CourseBrief = ({ data, btnHandler, ...props }) => {
-  const dummyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
   const icSolid = props.icSolid || 'bxs:heart';
   const icOutline = props.icOutline || 'bx:heart';
+  const icon = props.boolState ? icSolid : icOutline;
+  const text =
+    data.title || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
   return (
     <>
       <div className='flex justify-between items-start'>
         <div>
-          <h2 className='text-heading-2 clamp'>{data.title || dummyText}</h2>
+          <h2 className='text-heading-2 clamp'>{text}</h2>
           <p className='text-subtext'>
             By <span className='text-primary-base'>John H. Doe</span>
           </p>
         </div>
         <button
-          onClick={btnHandler || ''}
+          onClick={btnHandler || console.error('Button handlernya mana woi')}
           className='
                 ml-2 p-2 text-red-500 
                 transition-all hover:bg-red-100 hover:rounded-full'>
-          <Icon icon={`${props.boolState ? icSolid : icOutline}`} width='24' />
+          <Icon icon={`${icon}`} width='24' />
         </button>
       </div>
       <div className='flex justify-between items-center'>

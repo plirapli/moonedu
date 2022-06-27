@@ -17,15 +17,14 @@ const CourseDetail = (props) => {
     (course) => course.id === parseInt(id)
   )[0];
   const menuName = dispCourse.title;
-  const boolState = dispCourse.wishlist || 0;
 
   const icSolid = 'bxs:heart';
   const icOutline = 'bx:heart';
 
-  const btnHandler = (e) => {
-    props.setState(
-      props.items.map((item) =>
-        item.id === props.data.id ? { ...item, favorite: !item.favorite } : item
+  const btnHandler = () => {
+    props.setCourses(
+      props.courses.map((item) =>
+        item.id === dispCourse.id ? { ...item, wishlist: !item.wishlist } : item
       )
     );
   };
@@ -47,9 +46,10 @@ const CourseDetail = (props) => {
         <div className='mt-4'>
           <CourseBrief
             data={dispCourse}
+            btnHandler={btnHandler}
+            boolState={dispCourse.wishlist}
             icSolid={icSolid}
             icOutline={icOutline}
-            btnHandler={btnHandler}
           />
         </div>
 

@@ -48,6 +48,14 @@ const MyLearning = () => {
   const favCourse = myCourse.filter((course) => course.favorite);
   const menuName = 'My Learning';
 
+  const btnHandler = (id) => {
+    setMyCourse(
+      myCourse.map((item) =>
+        item.id === id ? { ...item, favorite: !item.favorite } : item
+      )
+    );
+  };
+
   return (
     <div className='w-full mt-4 pb-6'>
       {/* HEADER */}
@@ -72,8 +80,7 @@ const MyLearning = () => {
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
-                    setState={setMyCourse}
-                    items={myCourse}
+                    btnHandler={btnHandler}
                   />
                 </div>
               ))}
@@ -88,8 +95,7 @@ const MyLearning = () => {
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
-                    setState={setMyCourse}
-                    items={myCourse}
+                    btnHandler={btnHandler}
                   />
                 </div>
               ))}
