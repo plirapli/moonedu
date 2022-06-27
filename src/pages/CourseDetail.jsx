@@ -49,13 +49,15 @@ const CourseDetail = (props) => {
             data={dispCourse}
             icSolid={icSolid}
             icOutline={icOutline}
+            btnHandler={btnHandler}
           />
         </div>
 
         {/* Playlist - Desc Btn */}
         <div className='mt-4'>
           <BtnSwitcher
-            qty={dispCourse.chapterQty}
+            textLeft={'Playlist (' + dispCourse.chapterQty + ')'}
+            textRight={'Description'}
             boolState={isPlaylist}
             setBoolState={setIsPlaylist}
           />

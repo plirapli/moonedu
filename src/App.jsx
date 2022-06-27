@@ -11,10 +11,11 @@ import Marketing from './assets/icon/megaphone.png';
 import Wallet from './assets/icon/wallet.png';
 import Fishing from './assets/icon/fishing.png';
 
-// Comp
+// Comp - Layout
 const Layout = lazy(() => import('./pages/Layout'));
 const LayoutBuy = lazy(() => import('./pages/LayoutBuy'));
 
+// Comp - Page
 const Home = lazy(() => import('./pages/Home'));
 const Profile = lazy(() => import('./pages/Profile'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
@@ -86,6 +87,7 @@ function App() {
       category: 'graphic-design',
       rating: '4.8 (18.1k)',
       price: 135000,
+      chapterQty: '22',
       courseList: [
         { id: 1, title: 'Introduction', isLocked: false, duration: '02:18' },
         {

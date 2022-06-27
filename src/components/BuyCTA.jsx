@@ -9,11 +9,14 @@ const BuyCTA = () => {
           icon='bx:cart'
           size='28'
           borderRadius='rounded-lg'
-          className='shadow'
+          className='bg-primary-base text-white shadow'
         />
       </div>
       <div className='ml-4 flex-1'>
-        <BtnText text='Enroll Now' className='py-2.5' />
+        <BtnText
+          text='Enroll Now'
+          className='py-2.5 bg-primary-base text-white'
+        />
       </div>
     </div>
   );

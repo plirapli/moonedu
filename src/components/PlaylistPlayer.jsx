@@ -13,7 +13,9 @@ const PlaylistPlayer = ({ title, dur, ...props }) => {
       </div>
       <CircleIc
         icon={props.iconR}
-        className={`p-1 bg-green-600 shadow-none ${props.icClassNameR}`}
+        className={`p-1 shadow-none ${
+          props.icClassNameR || 'bg-green-600 text-white'
+        }`}
         size='16'
       />
     </div>

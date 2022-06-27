@@ -1,13 +1,13 @@
 import BtnText from './BtnText';
 
-const BtnSwitcher = ({ qty, boolState, setBoolState, ...props }) => {
+const BtnSwitcher = ({ boolState, setBoolState, ...props }) => {
   const pageHandler = (state, setState) => setState(() => state);
 
   return (
     <div className='p-2 bg-primary-sub flex items-center rounded-2xl shadow'>
       <div className='w-full' onClick={() => pageHandler(true, setBoolState)}>
         <BtnText
-          text={`Playlist (${qty || 22})`}
+          text={props.textLeft}
           className={
             !boolState &&
             `bg-primary-sub text-black shadow-none transition 
@@ -17,7 +17,7 @@ const BtnSwitcher = ({ qty, boolState, setBoolState, ...props }) => {
       </div>
       <div className='w-full' onClick={() => pageHandler(false, setBoolState)}>
         <BtnText
-          text='Description'
+          text={props.textRight}
           className={
             boolState &&
             `bg-primary-sub text-black shadow-none transition 
