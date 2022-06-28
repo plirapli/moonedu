@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -10,37 +10,49 @@ import BtnSwitcher from '../components/BtnSwitcher';
 import Playlist from '../components/Playlist';
 
 const CourseDetail = (props) => {
-  const [isPlaylist, setIsPlaylist] = useState(true);
+  const navigate = useNavigate();
   const { id } = useParams();
-
   const dispCourse = props.courses.filter(
     (course) => course.id === parseInt(id)
   )[0];
-  const menuName = dispCourse.title;
 
+  const [isPlaylist, setIsPlaylist] = useState(true);
+  const [selectedCourse, setSelectedCourse] = useState(
+    dispCourse.courseList[0]
+  );
+  const [clickCounter, setClickCounter] = useState(1);
+
+  const menuName = dispCourse.title;
   const icSolid = 'bxs:heart';
   const icOutline = 'bx:heart';
+  const dummyTextLong = `
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Proin non congue arcu. Phasellus mollis pretium.`;
 
-  const btnHandler = () => {
+  const btnHandler = () =>
     props.setCourses(
       props.courses.map((item) =>
         item.id === dispCourse.id ? { ...item, wishlist: !item.wishlist } : item
       )
     );
-  };
-
-  const dummyTextLong = `
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Proin non congue arcu. Phasellus mollis pretium.`;
+  const btnBack = () => navigate(-clickCounter);
 
   return (
     <div className='w-full mt-4 pb-6'>
       {/* Header */}
-      <TopNavBar buttonL={1} buttonR={1} menuName={menuName} />
+      <TopNavBar
+        backButton={btnBack}
+        buttonL={1}
+        buttonR={1}
+        menuName={menuName}
+      />
 
       {/* Main Content */}
       <div className='px-6 pt-2'>
-        <MediaPlayer />
+        <MediaPlayer
+          url={selectedCourse.videoURL}
+          title={selectedCourse.title}
+        />
 
         {/* Course Brief Information */}
         <div className='mt-4'>
@@ -66,9 +78,16 @@ const CourseDetail = (props) => {
         {/* Playlist/Desc Menu */}
         <>
           {/* Playlist menu */}
-          <div className='mt-1'>
-            {isPlaylist && <Playlist items={dispCourse.courseList} />}
-          </div>
+          {isPlaylist && (
+            <div className='mt-2'>
+              <Playlist
+                items={dispCourse.courseList}
+                selected={selectedCourse}
+                setSelected={setSelectedCourse}
+                setClickCounter={setClickCounter}
+              />
+            </div>
+          )}
 
           {/* Desc menu */}
           {!isPlaylist && (

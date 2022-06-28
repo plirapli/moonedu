@@ -12,7 +12,7 @@ const TopNavBar = (props) => {
     <div className='flex items-center'>
       <button
         type='button'
-        onClick={backButton}
+        onClick={props.backButton || backButton}
         className={`${isActiveL ? '' : 'hidden'} py-2 pr-4 pl-6`}>
         <Icon icon='eva:arrow-ios-back-fill' width='28' />
       </button>
