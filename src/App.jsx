@@ -17,13 +17,14 @@ const LayoutBuy = lazy(() => import('./pages/LayoutBuy'));
 
 // Comp - Page
 const Home = lazy(() => import('./pages/Home'));
-const Profile = lazy(() => import('./pages/Profile'));
+const Notification = lazy(() => import('./pages/Notification'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
 const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const MyLearning = lazy(() => import('./pages/MyLearning'));
 const MyCourseDetail = lazy(() => import('./pages/MyCourseDetail'));
+const Profile = lazy(() => import('./pages/Profile'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
 
 function App() {
@@ -113,7 +114,7 @@ function App() {
         },
       ],
       wishlist: true,
-      isBought: true,
+      isBought: false,
     },
     {
       id: 2,
@@ -215,6 +216,7 @@ function App() {
                 index
                 element={<Home categories={categories} courses={courses} />}
               />
+              <Route path='notification' element={<Notification />} />
               <Route
                 path='category/all'
                 element={<AllCategories categories={categories} />}

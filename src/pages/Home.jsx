@@ -20,9 +20,11 @@ function Home(props) {
             <button className='p-2'>
               <Icon icon='bx:cart' width='28' />
             </button>
-            <button className='p-2'>
-              <Icon icon='bx:bell' width='28' />
-            </button>
+            <Link to='notification'>
+              <button className='p-2'>
+                <Icon icon='bx:bell' width='28' />
+              </button>
+            </Link>
           </div>
         </div>
         <div className='mt-4'>
