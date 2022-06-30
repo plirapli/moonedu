@@ -8,7 +8,7 @@ const HorIcSubtext = ({ icon, isActive, text, subtext, ...props }) => {
   return (
     <div
       className={`px-4 py-3 flex items-start rounded-xl shadow ${
-        isActive ? 'bg-primary-base' : 'bg-white'
+        isActive ? 'bg-primary-gradient' : 'bg-white'
       }`}>
       <div className='mt-1'>
         <CircleIc

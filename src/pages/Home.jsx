@@ -17,14 +17,14 @@ function Home(props) {
         <div className='flex justify-between items-center'>
           <h1 className='text-heading'>Hi, Rafli</h1>
           <div className=''>
-            <button className='p-2'>
-              <Icon icon='bx:cart' width='28' />
-            </button>
             <Link to='notification'>
-              <button className='p-2'>
+              <button className='p-2 rounded-lg transition-all hover:bg-primary-sub'>
                 <Icon icon='bx:bell' width='28' />
               </button>
             </Link>
+            <button className='p-2 rounded-lg transition-all hover:bg-primary-sub'>
+              <Icon icon='bx:cart' width='28' />
+            </button>
           </div>
         </div>
         <div className='mt-4'>

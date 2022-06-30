@@ -26,6 +26,14 @@
   }
 }
 
+.bg-primary-gradient {
+  background: 
+    linear-gradient(
+      0deg, rgba(116, 85, 247, 0.75), rgba(116, 85, 247, 0.75)), 
+    linear-gradient(
+      114.58deg, rgba(228, 221, 253, 0.51) 5.27%, #C4B7FB 23.83%, #7455F7 71.44%);
+}
+
 .clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;

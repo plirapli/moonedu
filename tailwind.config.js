@@ -11,7 +11,6 @@ module.exports = {
       colors: {
         primary: {
           base: '#7455F7',
-          gradient: '#937BF9',
           sub: '#E4DDFD',
           bg: '#FAF9FF',
         },
