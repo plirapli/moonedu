@@ -23,19 +23,19 @@ const CourseDetail = (props) => {
   const [clickCounter, setClickCounter] = useState(1);
 
   const menuName = dispCourse.title;
-  const icSolid = 'bxs:heart';
-  const icOutline = 'bx:heart';
+  const icSolid = 'bxs:star';
+  const icOutline = 'bx:star';
   const dummyTextLong = `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Proin non congue arcu. Phasellus mollis pretium.`;
 
+  const btnBack = () => navigate(-clickCounter);
   const btnHandler = () =>
-    props.setCourses(
+    props.setMyCourses(
       props.myCourses.map((item) =>
-        item.id === dispCourse.id ? { ...item, wishlist: !item.wishlist } : item
+        item.id === dispCourse.id ? { ...item, favorite: !item.favorite } : item
       )
     );
-  const btnBack = () => navigate(-clickCounter);
 
   return (
     <div className='w-full mt-4 pb-6'>
@@ -59,9 +59,10 @@ const CourseDetail = (props) => {
           <CourseBrief
             data={dispCourse}
             btnHandler={btnHandler}
-            boolState={dispCourse.wishlist}
+            boolState={dispCourse.favorite}
             icSolid={icSolid}
             icOutline={icOutline}
+            btnClassName='text-secondary-base hover:bg-secondary-sub'
           />
         </div>
 

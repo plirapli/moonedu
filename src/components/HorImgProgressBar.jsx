@@ -17,7 +17,9 @@ const HorImgProgressBar = (props) => {
   };
 
   return (
-    <div className='rounded-xl bg-white shadow overflow-hidden p-3'>
+    <div
+      className='p-3 bg-white rounded-xl shadow-card 
+                 overflow-hidden transition-all hover:shadow-md'>
       <div className='flex'>
         <img className='w-16 h-16 bg-primary-base' src={img} alt='' />
         <div className='ml-3 flex-1 flex flex-col justify-center'>

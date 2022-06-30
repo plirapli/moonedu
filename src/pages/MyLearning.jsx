@@ -1,5 +1,5 @@
 // Lib
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -14,13 +14,14 @@ const MyLearning = (props) => {
   const favCourse = props.myCourse.filter((course) => course.favorite);
   const menuName = 'My Learning';
 
-  const btnHandler = (id) => {
+  const navigate = useNavigate();
+  const btnHandler = (id) => navigate('/my-learning/' + id);
+  const favoriteBtnHandler = (id) =>
     props.setMyCourse(
       props.myCourse.map((item) =>
         item.id === id ? { ...item, favorite: !item.favorite } : item
       )
     );
-  };
 
   return (
     <div className='w-full mt-4 pb-6'>
@@ -42,13 +43,16 @@ const MyLearning = (props) => {
                 </p>
               )}
               {favCourse.map((course) => (
-                <Link key={course.id} to={'/my-learning/' + course.id}>
+                <div
+                  key={course.id}
+                  onClick={() => btnHandler(course.id)}
+                  className='cursor-pointer'>
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
-                    btnHandler={btnHandler}
+                    btnHandler={favoriteBtnHandler}
                   />
-                </Link>
+                </div>
               ))}
             </div>
           </section>
@@ -57,13 +61,16 @@ const MyLearning = (props) => {
             <p className='font-medium'>All Courses</p>
             <div className='mt-2 grid gap-3'>
               {props.myCourse.map((course) => (
-                <Link key={course.id} to={'/my-learning/' + course.id}>
+                <div
+                  key={course.id}
+                  onClick={() => btnHandler(course.id)}
+                  className='cursor-pointer'>
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
-                    btnHandler={btnHandler}
+                    btnHandler={favoriteBtnHandler}
                   />
-                </Link>
+                </div>
               ))}
             </div>
           </section>

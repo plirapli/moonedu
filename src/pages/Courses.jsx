@@ -16,10 +16,7 @@ const Courses = (props) => {
   );
 
   const navigate = useNavigate();
-  const btnHandler = (id) => {
-    navigate('/course/' + id);
-  };
-
+  const btnHandler = (id) => navigate('/course/' + id);
   const wishlistBtnHandler = (id) =>
     props.setCourses(
       props.courses.map((item) =>
