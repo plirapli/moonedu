@@ -160,18 +160,26 @@ function App() {
       completed: 12,
       chapterQty: 22,
       courseList: [
-        { id: 1, title: 'Introduction', isLocked: false, duration: '02:18' },
+        {
+          id: 1,
+          title: 'Introduction',
+          isLocked: false,
+          duration: '02:18',
+          videoURL: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+        },
         {
           id: 2,
           title: 'What is UI/UX Design?',
           isLocked: false,
           duration: '18:46',
+          videoURL: 'https://www.youtube.com/embed/Fp8msa5uYsc',
         },
         {
           id: 3,
           title: 'How to make a wireframe',
           isLocked: false,
           duration: '20:58',
+          videoURL: 'https://www.youtube.com/embed/R9At2ICm4LQ',
         },
       ],
       favorite: true,

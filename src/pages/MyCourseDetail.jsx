@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -9,49 +9,59 @@ import CourseBrief from '../components/CourseBrief';
 import BtnSwitcher from '../components/BtnSwitcher';
 import Playlist from '../components/Playlist';
 
-const MyCourseDetail = ({ myCourses, setMyCourses }) => {
-  const [isPlaylist, setIsPlaylist] = useState(true);
+const CourseDetail = (props) => {
+  const navigate = useNavigate();
   const { id } = useParams();
-
-  const dispCourse = myCourses.filter(
+  const dispCourse = props.myCourses.filter(
     (course) => course.id === parseInt(id)
   )[0];
+
+  const [isPlaylist, setIsPlaylist] = useState(true);
+  const [selectedCourse, setSelectedCourse] = useState(
+    dispCourse.courseList[0]
+  );
+  const [clickCounter, setClickCounter] = useState(1);
+
   const menuName = dispCourse.title;
-
-  const icSolid = 'bxs:star';
-  const icOutline = 'bx:star';
-
-  const btnHandler = () => {
-    console.log('click');
-    setMyCourses(
-      myCourses.map((item) =>
-        item.id === dispCourse.id ? { ...item, favorite: !item.favorite } : item
-      )
-    );
-  };
-
+  const icSolid = 'bxs:heart';
+  const icOutline = 'bx:heart';
   const dummyTextLong = `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Proin non congue arcu. Phasellus mollis pretium.`;
 
+  const btnHandler = () =>
+    props.setCourses(
+      props.myCourses.map((item) =>
+        item.id === dispCourse.id ? { ...item, wishlist: !item.wishlist } : item
+      )
+    );
+  const btnBack = () => navigate(-clickCounter);
+
   return (
     <div className='w-full mt-4 pb-6'>
       {/* Header */}
-      <TopNavBar buttonL={1} buttonR={1} menuName={menuName} />
+      <TopNavBar
+        backButton={btnBack}
+        buttonL={1}
+        buttonR={1}
+        menuName={menuName}
+      />
 
       {/* Main Content */}
       <div className='px-6 pt-2'>
-        <MediaPlayer />
+        <MediaPlayer
+          url={selectedCourse.videoURL}
+          title={selectedCourse.title}
+        />
 
         {/* Course Brief Information */}
         <div className='mt-4'>
           <CourseBrief
             data={dispCourse}
             btnHandler={btnHandler}
-            boolState={dispCourse.favorite}
+            boolState={dispCourse.wishlist}
             icSolid={icSolid}
             icOutline={icOutline}
-            btnClassName='text-secondary-base hover:bg-secondary-sub'
           />
         </div>
 
@@ -68,9 +78,16 @@ const MyCourseDetail = ({ myCourses, setMyCourses }) => {
         {/* Playlist/Desc Menu */}
         <>
           {/* Playlist menu */}
-          <div className='mt-1'>
-            {isPlaylist && <Playlist items={dispCourse.courseList} />}
-          </div>
+          {isPlaylist && (
+            <div className='mt-2'>
+              <Playlist
+                items={dispCourse.courseList}
+                selected={selectedCourse}
+                setSelected={setSelectedCourse}
+                setClickCounter={setClickCounter}
+              />
+            </div>
+          )}
 
           {/* Desc menu */}
           {!isPlaylist && (
@@ -92,4 +109,4 @@ const MyCourseDetail = ({ myCourses, setMyCourses }) => {
   );
 };
 
-export default MyCourseDetail;
+export default CourseDetail;

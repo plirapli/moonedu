@@ -57,13 +57,13 @@ const MyLearning = (props) => {
             <p className='font-medium'>All Courses</p>
             <div className='mt-2 grid gap-3'>
               {props.myCourse.map((course) => (
-                <div key={course.id} className='cursor-pointer'>
+                <Link key={course.id} to={'/my-learning/' + course.id}>
                   <HorImgProgressBar
                     data={course}
                     boolState={course.favorite}
                     btnHandler={btnHandler}
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </section>
