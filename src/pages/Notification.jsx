@@ -4,10 +4,10 @@ import TopNavBar from '../components/TopNavBar';
 
 const Notification = () => {
   return (
-    <div className='w-full mt-4'>
+    <>
       <TopNavBar buttonL={1} buttonR={1} menuName={'Notification'} />
 
-      <div className='px-6 pt-4 pb-6'>
+      <div className='px-6 pt-4'>
         <div>
           <div className='font-medium text-gray'>Today</div>
           <div className='mt-2 grid gap-3'>
@@ -31,7 +31,7 @@ const Notification = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

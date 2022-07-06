@@ -24,7 +24,7 @@ const MyLearning = (props) => {
     );
 
   return (
-    <div className='w-full mt-4 pb-6'>
+    <>
       {/* HEADER */}
       <TopNavBar buttonR={1} menuName={menuName} />
       <div className='px-6 mt-4'>
@@ -94,7 +94,7 @@ const MyLearning = (props) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

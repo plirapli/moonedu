@@ -38,7 +38,7 @@ const CourseDetail = (props) => {
   const btnBack = () => navigate(-clickCounter);
 
   return (
-    <div className='w-full mt-4 pb-6'>
+    <>
       {/* Header */}
       <TopNavBar
         backButton={btnBack}
@@ -105,7 +105,7 @@ const CourseDetail = (props) => {
           )}
         </>
       </div>
-    </div>
+    </>
   );
 };
 

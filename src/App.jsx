@@ -12,8 +12,9 @@ import Wallet from './assets/icon/wallet.png';
 import Fishing from './assets/icon/fishing.png';
 
 // Comp - Layout
-const Layout = lazy(() => import('./pages/Layout'));
-const LayoutBuy = lazy(() => import('./pages/LayoutBuy'));
+const Layout = lazy(() => import('./layout/Layout'));
+const LayoutTop = lazy(() => import('./layout/LayoutTop'));
+const LayoutBuy = lazy(() => import('./layout/LayoutBuy'));
 
 // Comp - Page
 const Home = lazy(() => import('./pages/Home'));
@@ -224,51 +225,60 @@ function App() {
                 index
                 element={<Home categories={categories} courses={courses} />}
               />
-              <Route path='notification' element={<Notification />} />
+              <Route path='/' element={<LayoutTop />}>
+                <Route path='notification' element={<Notification />} />
+                <Route
+                  path='category/all'
+                  element={<AllCategories categories={categories} />}
+                />
+                <Route
+                  path='category/:id'
+                  element={
+                    <Courses
+                      categories={categories}
+                      courses={courses}
+                      setCourses={setCourses}
+                    />
+                  }
+                />
+                <Route
+                  path='wishlist'
+                  element={
+                    <Wishlist courses={courses} setCourses={setCourses} />
+                  }
+                />
+                <Route
+                  path='my-learning'
+                  element={
+                    <MyLearning
+                      myCourse={myCourses}
+                      setMyCourse={setMyCourses}
+                    />
+                  }
+                />
+                <Route path='profile' element={<Profile />} />
+                <Route path='*' element={<NoMatch />} />
+              </Route>
+            </Route>
+            <Route path='/' element={<LayoutTop />}>
+              <Route path='/course/' element={<LayoutBuy />}>
+                <Route
+                  path=':id'
+                  element={
+                    <CourseDetail courses={courses} setCourses={setCourses} />
+                  }
+                />
+              </Route>
               <Route
-                path='category/all'
-                element={<AllCategories categories={categories} />}
-              />
-              <Route
-                path='category/:id'
+                path='/my-learning/:id'
                 element={
-                  <Courses
-                    categories={categories}
-                    courses={courses}
-                    setCourses={setCourses}
+                  <MyCourseDetail
+                    myCourses={myCourses}
+                    setMyCourses={setMyCourses}
                   />
                 }
               />
-              <Route
-                path='wishlist'
-                element={<Wishlist courses={courses} setCourses={setCourses} />}
-              />
-              <Route
-                path='my-learning'
-                element={
-                  <MyLearning myCourse={myCourses} setMyCourse={setMyCourses} />
-                }
-              />
-              <Route path='profile' element={<Profile />} />
-              <Route path='*' element={<NoMatch />} />
             </Route>
-            <Route path='/course/' element={<LayoutBuy />}>
-              <Route
-                path=':id'
-                element={
-                  <CourseDetail courses={courses} setCourses={setCourses} />
-                }
-              />
-            </Route>
-            <Route
-              path='/my-learning/:id'
-              element={
-                <MyCourseDetail
-                  myCourses={myCourses}
-                  setMyCourses={setMyCourses}
-                />
-              }
-            />
           </Routes>
         </Suspense>
       </div>

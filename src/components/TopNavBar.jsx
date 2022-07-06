@@ -9,7 +9,9 @@ const TopNavBar = (props) => {
   const backButton = () => navigate(-1);
 
   return (
-    <div className='flex items-center'>
+    <div
+      className='max-w-screen-sm w-full fixed top-0 
+                    bg-primary-bg flex items-center pt-4'>
       <button
         type='button'
         onClick={props.backButton || backButton}
