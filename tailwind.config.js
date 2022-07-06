@@ -30,6 +30,15 @@ module.exports = {
         card: '1.5px 1.5px 6px rgba(154, 154, 154, 0.15)',
         container: '0px -2px 6px 2px #E4DDFD',
       },
+      keyframes: {
+        bottomPopUp: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        bottomPopUp: 'bottomPopUp 0.3s ease-in-out',
+      },
     },
   },
   plugins: [],

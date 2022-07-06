@@ -8,6 +8,7 @@ import MediaPlayer from '../components/MediaPlayer';
 import CourseBrief from '../components/CourseBrief';
 import BtnSwitcher from '../components/BtnSwitcher';
 import Playlist from '../components/Playlist';
+import BuyCTA from '../components/BuyCTA';
 
 const CourseDetail = (props) => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const CourseDetail = (props) => {
       )
     );
   const btnBack = () => navigate(-clickCounter);
+  const btnPopUp = (setState) => setState((prev) => !prev);
 
   return (
     <>
@@ -48,7 +50,7 @@ const CourseDetail = (props) => {
       />
 
       {/* Main Content */}
-      <div className='px-6 pt-2'>
+      <div className='px-6 pt-2 pb-16'>
         <MediaPlayer
           url={selectedCourse.videoURL}
           title={selectedCourse.title}
@@ -98,12 +100,18 @@ const CourseDetail = (props) => {
               </div>
               <div className='mt-3 grid gap-3'>
                 <HorIc icon='bxs:detail' text='Course Details' />
-                <HorIc icon='bxs:chat' text='Discussion' />
+                <div onClick={() => btnPopUp(props.setIsComment)}>
+                  <HorIc icon='bxs:chat' text='Discussion' />
+                </div>
                 <HorIc icon='bxs:star' text='Reviews' />
               </div>
             </div>
           )}
         </>
+      </div>
+
+      <div className='w-full max-w-screen-sm fixed bottom-0'>
+        <BuyCTA />
       </div>
     </>
   );

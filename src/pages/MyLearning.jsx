@@ -79,7 +79,7 @@ const MyLearning = (props) => {
 
       {/* Empty State Handler */}
       {props.myCourse.length <= 0 && (
-        <div className='mt-4 px-6 pb-6 flex flex-col items-center'>
+        <div className='mt-4 px-6 flex flex-col items-center'>
           <img className='w-56 h-56' src={EmptyStates} alt='' />
           <div className='mt-12 text-center'>
             <h2 className='text-heading-2'>You wishlist is empty</h2>

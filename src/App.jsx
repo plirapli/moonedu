@@ -14,7 +14,7 @@ import Fishing from './assets/icon/fishing.png';
 // Comp - Layout
 const Layout = lazy(() => import('./layout/Layout'));
 const LayoutTop = lazy(() => import('./layout/LayoutTop'));
-const LayoutBuy = lazy(() => import('./layout/LayoutBuy'));
+const LayoutCourse = lazy(() => import('./layout/LayoutCourse'));
 
 // Comp - Page
 const Home = lazy(() => import('./pages/Home'));
@@ -30,6 +30,7 @@ const NoMatch = lazy(() => import('./pages/NoMatch'));
 
 function App() {
   const [activeMenu, setActiveMenu] = useState('');
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
 
   // Dummy data (temporary)
   const categories = [
@@ -260,17 +261,27 @@ function App() {
                 <Route path='*' element={<NoMatch />} />
               </Route>
             </Route>
-            <Route path='/' element={<LayoutTop />}>
-              <Route path='/course/' element={<LayoutBuy />}>
-                <Route
-                  path=':id'
-                  element={
-                    <CourseDetail courses={courses} setCourses={setCourses} />
-                  }
+            <Route
+              path='/'
+              element={
+                <LayoutCourse
+                  isComment={isCommentOpen}
+                  setIsComment={setIsCommentOpen}
                 />
-              </Route>
+              }>
               <Route
-                path='/my-learning/:id'
+                path='course/:id'
+                element={
+                  <CourseDetail
+                    courses={courses}
+                    setCourses={setCourses}
+                    isComment={isCommentOpen}
+                    setIsComment={setIsCommentOpen}
+                  />
+                }
+              />
+              <Route
+                path='my-learning/:id'
                 element={
                   <MyCourseDetail
                     myCourses={myCourses}

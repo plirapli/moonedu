@@ -16,9 +16,9 @@ const HorIcSubtext = ({ icon, isActive, text, subtext, ...props }) => {
           className='bg-primary-sub text-primary-base p-[0.375rem]'
         />
       </div>
-      <div className='w-full mx-3'>
+      <div className='w-full'>
         <div className='flex justify-between items-center font-medium'>
-          <div className={isActive && 'text-white'}>
+          <div className={`mx-3 ${isActive && 'text-white'}`}>
             {text || 'Lorem ipsum'}
           </div>
           <div

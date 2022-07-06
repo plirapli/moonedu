@@ -39,7 +39,7 @@ const Courses = (props) => {
 
       {/* Courses */}
       {dispCourses.length >= 1 && (
-        <div className='mt-4 px-6 pb-6'>
+        <div className='mt-4 px-6'>
           <div className='grid gap-3'>
             {dispCourses.map((course, i) => (
               <div
