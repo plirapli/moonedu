@@ -33,15 +33,16 @@ const Wishlist = (props) => {
       {dispCourses.length >= 1 && (
         <div className='mt-4 px-6'>
           <div className='grid gap-3'>
-            {dispCourses.map((course, i) => (
-              <HorImg
-                key={course.id}
-                data={course}
-                lSubtext={course.rating}
-                rSubtext={`Rp${course.price},-`}
-                btnHandler={btnHandler}
-                boolState={course.wishlist}
-              />
+            {dispCourses.map((course) => (
+              <Link key={course.id} to={`/course/${course.id}`}>
+                <HorImg
+                  data={course}
+                  lSubtext={course.rating}
+                  rSubtext={`Rp${course.price},-`}
+                  btnHandler={btnHandler}
+                  boolState={course.wishlist}
+                />
+              </Link>
             ))}
           </div>
         </div>
