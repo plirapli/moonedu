@@ -29,13 +29,14 @@ const CourseDetail = (props) => {
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Proin non congue arcu. Phasellus mollis pretium.`;
 
-  const btnBack = () => navigate(-clickCounter);
   const btnHandler = () =>
     props.setMyCourses(
       props.myCourses.map((item) =>
         item.id === dispCourse.id ? { ...item, favorite: !item.favorite } : item
       )
     );
+  const btnBack = () => navigate(-clickCounter);
+  const btnPopUp = (setState) => setState((prev) => !prev);
 
   return (
     <>
@@ -99,7 +100,9 @@ const CourseDetail = (props) => {
               </div>
               <div className='mt-3 grid gap-3'>
                 <HorIc icon='bxs:detail' text='Course Details' />
-                <HorIc icon='bxs:chat' text='Discussion' />
+                <div onClick={() => btnPopUp(props.setIsComment)}>
+                  <HorIc icon='bxs:chat' text='Discussion' />
+                </div>
                 <HorIc icon='bxs:star' text='Reviews' />
               </div>
             </div>

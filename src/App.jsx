@@ -286,6 +286,8 @@ function App() {
                   <MyCourseDetail
                     myCourses={myCourses}
                     setMyCourses={setMyCourses}
+                    isComment={isCommentOpen}
+                    setIsComment={setIsCommentOpen}
                   />
                 }
               />
