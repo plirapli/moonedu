@@ -1,5 +1,5 @@
 // Lib
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -14,7 +14,9 @@ const Wishlist = (props) => {
   const menuName = 'Wishlist';
   const dispCourses = props.courses.filter((course) => course.wishlist);
 
-  const btnHandler = (id) =>
+  const navigate = useNavigate();
+  const btnHandler = (id) => navigate('/course/' + id);
+  const wishlistBtnHandler = (id) =>
     props.setCourses(
       props.courses.map((item) =>
         item.id === id ? { ...item, wishlist: !item.wishlist } : item
@@ -34,15 +36,18 @@ const Wishlist = (props) => {
         <div className='mt-4 px-6'>
           <div className='grid gap-3'>
             {dispCourses.map((course) => (
-              <Link key={course.id} to={`/course/${course.id}`}>
+              <div
+                key={course.id}
+                onClick={() => btnHandler(course.id)}
+                className='cursor-pointer'>
                 <HorImg
                   data={course}
                   lSubtext={course.rating}
                   rSubtext={`Rp${course.price},-`}
-                  btnHandler={btnHandler}
+                  btnHandler={wishlistBtnHandler}
                   boolState={course.wishlist}
                 />
-              </Link>
+              </div>
             ))}
           </div>
         </div>

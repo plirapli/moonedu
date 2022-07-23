@@ -137,7 +137,7 @@ function App() {
         {
           id: 2,
           title: 'What is UI/UX Design?',
-          isLocked: false,
+          isLocked: true,
           duration: '18:46',
           videoURL: 'https://www.youtube.com/embed/Fp8msa5uYsc',
         },
