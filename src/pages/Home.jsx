@@ -11,9 +11,9 @@ function Home(props) {
   const dispCategories = props.categories.slice(0, 4);
 
   return (
-    <div className='w-full mt-4 pb-6'>
+    <div className='w-full pb-6'>
       {/* Header */}
-      <div className='px-6'>
+      <div className='py-2 pl-6 pr-4'>
         <div className='flex justify-between items-center'>
           <h1 className='text-heading'>Hi, Rafli</h1>
           <div className=''>
@@ -27,9 +27,10 @@ function Home(props) {
             </button>
           </div>
         </div>
-        <div className='mt-4'>
-          <SearchBar />
-        </div>
+      </div>
+
+      <div className='px-6'>
+        <SearchBar />
       </div>
 
       {/* Recommended for you page */}

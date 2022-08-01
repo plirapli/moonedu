@@ -4,7 +4,7 @@ import CommentTab from '../components/CommentTab';
 function LayoutCourse({ isComment, setIsComment }) {
   return (
     <>
-      <div className='w-full mt-[3.875rem] pb-6'>
+      <div className='w-full mt-[3.75rem] pb-6'>
         <Outlet />
       </div>
       <CommentTab isComment={isComment} setIsComment={setIsComment} />

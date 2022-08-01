@@ -27,7 +27,7 @@ const MyLearning = (props) => {
     <>
       {/* HEADER */}
       <TopNavBar buttonR={1} menuName={menuName} />
-      <div className='px-6 mt-4'>
+      <div className='px-6'>
         <SearchBar text='Search My Course' />
       </div>
 

@@ -11,11 +11,13 @@ const TopNavBar = (props) => {
   return (
     <div
       className='max-w-screen-sm w-full fixed top-0 
-                    bg-primary-bg flex items-center pt-4'>
+                    bg-primary-bg flex items-center px-4 py-2'>
       <button
         type='button'
         onClick={props.backButton || backButton}
-        className={`${isActiveL ? '' : 'hidden'} py-2 pr-4 pl-6`}>
+        className={`${
+          isActiveL ? '' : 'hidden'
+        } p-2 rounded-lg transition-all hover:bg-primary-sub`}>
         <Icon icon='eva:arrow-ios-back-fill' width='28' />
       </button>
       <h1
@@ -26,7 +28,9 @@ const TopNavBar = (props) => {
       </h1>
       <button
         type='button'
-        className={`${isActiveR ? '' : 'hidden'} py-2 pl-4 pr-6`}>
+        className={`${
+          isActiveR ? '' : 'hidden'
+        } p-2 rounded-lg transition-all hover:bg-primary-sub`}>
         <Icon icon='bx:cart' width='28' />
       </button>
     </div>
