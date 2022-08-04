@@ -88,7 +88,7 @@ const getCourses = () => [
   },
   {
     id: 2,
-    title: 'Figma UI/UX Design Essential',
+    title: 'Lorem ipsum dolor sit amet',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue arcu. Phasellus mollis pretium.',
     category: 'sports',
     rating: '4.8 (18.1k)',
