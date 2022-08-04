@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Comp
 import CardSquare from '../components/CardSquare';
@@ -9,6 +9,9 @@ import CardVerticalImage from '../components/CardVerticalImage';
 function Home(props) {
   const dispCourses = props.courses;
   const dispCategories = props.categories.slice(0, 4);
+
+  const navigate = useNavigate();
+  const btnHandler = (id) => navigate('/course/' + id);
 
   return (
     <div className='w-full pb-6'>
@@ -40,13 +43,14 @@ function Home(props) {
           <p className='text-subtext text-primary-base'>See all</p>
         </div>
         <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll pb-2'>
-          {dispCourses.map((dCourse) => (
-            <CardVerticalImage
-              key={dCourse.id}
-              title={dCourse.title}
-              lSubtext={dCourse.rating}
-              rSubtext={`Rp${dCourse.price},-`}
-            />
+          {dispCourses.map((course) => (
+            <div key={course.id} onClick={() => btnHandler(course.id)}>
+              <CardVerticalImage
+                title={course.title}
+                lSubtext={course.rating}
+                rSubtext={`Rp${course.price},-`}
+              />
+            </div>
           ))}
         </div>
       </div>
