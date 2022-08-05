@@ -79,7 +79,9 @@ const NavButton = ({
   return (
     <li
       onClick={() => redirect(path)}
-      className='w-full p-1 flex flex-col justify-center items-center cursor-pointer'>
+      className='
+        w-full p-1 flex flex-col justify-center items-center cursor-pointer 
+        transition-all hover:bg-primary-bg'>
       <div className={isActive() ? 'text-primary-base' : 'text-gray'}>
         <Icon icon={isActive() ? icActive : icInactive} width='24' />
       </div>
