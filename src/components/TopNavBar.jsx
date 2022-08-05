@@ -7,6 +7,7 @@ const TopNavBar = (props) => {
 
   let navigate = useNavigate();
   const backButton = () => navigate(-1);
+  const cartButton = () => navigate('/cart');
 
   return (
     <div
@@ -28,6 +29,7 @@ const TopNavBar = (props) => {
       </h1>
       <button
         type='button'
+        onClick={props.rightButton || cartButton}
         className={`${
           isActiveR ? '' : 'hidden'
         } p-2 rounded-lg transition-all hover:bg-primary-sub`}>
