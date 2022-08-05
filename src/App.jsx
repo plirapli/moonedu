@@ -12,6 +12,7 @@ const LayoutCourse = lazy(() => import('./layout/LayoutCourse'));
 // Comp - Page
 const Home = lazy(() => import('./pages/Home'));
 const Notification = lazy(() => import('./pages/Notification'));
+const Cart = lazy(() => import('./pages/Cart'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
 const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
@@ -80,6 +81,7 @@ function App() {
                   }
                 />
                 <Route path='profile' element={<Profile />} />
+                <Route path='cart' element={<Cart />} />
                 <Route path='*' element={<NoMatch />} />
               </Route>
             </Route>
