@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 // Comp
 import TopNavBar from '../components/TopNavBar';
@@ -111,7 +111,9 @@ const CourseDetail = (props) => {
       </div>
 
       <div className='w-full max-w-screen-sm fixed bottom-0'>
-        <BuyCTA />
+        <Link to='transaction'>
+          <BuyCTA />
+        </Link>
       </div>
     </>
   );

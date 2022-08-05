@@ -15,6 +15,7 @@ const Notification = lazy(() => import('./pages/Notification'));
 const AllCategories = lazy(() => import('./pages/AllCategories'));
 const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
+const Transaction = lazy(() => import('./pages/Transaction'));
 const Wishlist = lazy(() => import('./pages/Wishlist'));
 const MyLearning = lazy(() => import('./pages/MyLearning'));
 const MyCourseDetail = lazy(() => import('./pages/MyCourseDetail'));
@@ -100,6 +101,10 @@ function App() {
                     setIsComment={setIsCommentOpen}
                   />
                 }
+              />
+              <Route
+                path='course/:id/transaction'
+                element={<Transaction courses={courses} />}
               />
               <Route
                 path='my-learning/:id'
