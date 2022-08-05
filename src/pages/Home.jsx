@@ -25,9 +25,11 @@ function Home(props) {
                 <Icon icon='bx:bell' width='28' />
               </button>
             </Link>
-            <button className='p-2 rounded-lg transition-all hover:bg-primary-sub'>
-              <Icon icon='bx:cart' width='28' />
-            </button>
+            <Link to='cart'>
+              <button className='p-2 rounded-lg transition-all hover:bg-primary-sub'>
+                <Icon icon='bx:cart' width='28' />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -37,12 +39,15 @@ function Home(props) {
       </div>
 
       {/* Recommended for you page */}
-      <div className='mt-6'>
-        <div className='px-6 flex justify-between'>
+      <div className='mt-4'>
+        <div
+          className='
+            py-2 px-6 flex justify-between items-center 
+            transition-all hover:bg-primary-sub'>
           <h1 className='text-heading-2'>Recommended for you</h1>
           <p className='text-subtext text-primary-base'>See all</p>
         </div>
-        <div className='px-6 mt-2 flex gap-4 overflow-x-auto no-scroll pb-2'>
+        <div className='px-6 flex gap-4 overflow-x-auto no-scroll pb-2'>
           {dispCourses.map((course) => (
             <div key={course.id} onClick={() => btnHandler(course.id)}>
               <CardVerticalImage
@@ -56,16 +61,19 @@ function Home(props) {
       </div>
 
       {/* Categories */}
-      <div className='mt-4 px-6'>
-        <div className='flex justify-between items-center'>
-          <h1 className='text-heading-2 text-black'>Explore Categories</h1>
-          <Link to='/category/all'>
+      <div className='mt-4'>
+        <Link to='/category/all'>
+          <div
+            className='
+              py-2 px-6 flex justify-between items-center 
+              transition-all hover:bg-primary-sub'>
+            <h1 className='text-heading-2 text-black'>Explore Categories</h1>
             <p className='text-subtext text-primary-base cursor-pointer'>
               See all
             </p>
-          </Link>
-        </div>
-        <div className='mt-2'>
+          </div>
+        </Link>
+        <div className='px-6'>
           <div className='grid grid-cols-2 gap-5'>
             {dispCategories.map((cat, i) => (
               <Link key={cat.id} to={'/category/' + cat.id}>
