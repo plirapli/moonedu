@@ -4,49 +4,41 @@ const getCategories = () => [
   {
     id: 'sports',
     title: 'Sports',
-    subTitle: '20 Courses',
     iconPath: Icon.Sport,
   },
   {
     id: 'photography',
     title: 'Photography',
-    subTitle: '18 Courses',
     iconPath: Icon.Photography,
   },
   {
     id: 'graphic-design',
     title: 'Graphic Design',
-    subTitle: '10 Courses',
     iconPath: Icon.Paint,
   },
   {
     id: 'accounting',
     title: 'Accounting',
-    subTitle: '16 Courses',
     iconPath: Icon.Dashboard,
   },
   {
     id: 'logic',
     title: 'Logic',
-    subTitle: '8 Courses',
     iconPath: Icon.Puzzle,
   },
   {
     id: 'marketing',
     title: 'Marketing',
-    subTitle: '21 Courses',
     iconPath: Icon.Marketing,
   },
   {
     id: 'finance',
     title: 'Finance',
-    subTitle: '14 Courses',
     iconPath: Icon.Wallet,
   },
   {
     id: 'fishing',
     title: 'Fishing',
-    subTitle: '4 Courses',
     iconPath: Icon.Fishing,
   },
 ];

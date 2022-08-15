@@ -79,7 +79,7 @@ function Home(props) {
               <Link key={cat.id} to={'/category/' + cat.id}>
                 <CardSquare
                   title={cat.title}
-                  subTitle={cat.subTitle}
+                  subTitle={props.qty(cat.id) + ' Courses'}
                   iconPath={cat.iconPath}
                 />
               </Link>

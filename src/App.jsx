@@ -32,6 +32,9 @@ function App() {
   const [courses, setCourses] = useState(Data.getCourses());
   const [myCourses, setMyCourses] = useState(Data.getMyCourses());
 
+  const coursesQty = (category) =>
+    courses.filter((course) => course.category === category).length;
+
   const location = useLocation();
   useEffect(() => setActiveMenu(() => location.pathname), [location]);
 
@@ -47,13 +50,21 @@ function App() {
               }>
               <Route
                 index
-                element={<Home categories={categories} courses={courses} />}
+                element={
+                  <Home
+                    categories={categories}
+                    courses={courses}
+                    qty={coursesQty}
+                  />
+                }
               />
               <Route path='/' element={<LayoutTop />}>
                 <Route path='notification' element={<Notification />} />
                 <Route
                   path='category/all'
-                  element={<AllCategories categories={categories} />}
+                  element={
+                    <AllCategories categories={categories} qty={coursesQty} />
+                  }
                 />
                 <Route
                   path='category/:id'

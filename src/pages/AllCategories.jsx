@@ -18,12 +18,12 @@ const AllCategories = (props) => {
       {/* Categories */}
       <div className='mt-5 px-6'>
         <div className='grid grid-cols-2 gap-5'>
-          {props.categories.map((dCat, i) => (
-            <Link key={dCat.id} to={'/category/' + dCat.id}>
+          {props.categories.map((cat, i) => (
+            <Link key={cat.id} to={'/category/' + cat.id}>
               <CardSquare
-                title={dCat.title}
-                subTitle={dCat.subTitle}
-                iconPath={dCat.iconPath}
+                title={cat.title}
+                subTitle={props.qty(cat.id) + ' Courses'}
+                iconPath={cat.iconPath}
               />
             </Link>
           ))}
