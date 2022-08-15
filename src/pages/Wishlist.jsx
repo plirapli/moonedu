@@ -27,49 +27,51 @@ const Wishlist = (props) => {
     <>
       {/* HEADER */}
       <TopNavBar buttonR={1} menuName={menuName} />
-      <div className='px-6 mt-4'>
-        <SearchBar />
+      <div className='px-6'>
+        <div className='mt-4'>
+          <SearchBar />
+        </div>
+
+        {/* Courses */}
+        {dispCourses.length >= 1 && (
+          <div className='mt-4'>
+            <div className='grid gap-3'>
+              {dispCourses.map((course) => (
+                <div
+                  key={course.id}
+                  onClick={() => btnHandler(course.id)}
+                  className='cursor-pointer'>
+                  <HorImg
+                    data={course}
+                    lSubtext={course.rating}
+                    rSubtext={`Rp${course.price},-`}
+                    btnHandler={wishlistBtnHandler}
+                    boolState={course.wishlist}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Empty State Handler */}
+        {dispCourses.length <= 0 && (
+          <div className='mt-16 pb-6 flex flex-col items-center'>
+            <img className='w-56 h-56' src={EmptyStates} alt='' />
+            <div className='text-center'>
+              <h2 className='text-heading-2'>You wishlist is empty</h2>
+              <p className='font-medium text-gray'>
+                Explore more and make a wish
+              </p>
+            </div>
+            <div className='w-full mt-5'>
+              <Link to='/category/all'>
+                <BtnText text='Browse Categories' />
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* Courses */}
-      {dispCourses.length >= 1 && (
-        <div className='mt-4 px-6'>
-          <div className='grid gap-3'>
-            {dispCourses.map((course) => (
-              <div
-                key={course.id}
-                onClick={() => btnHandler(course.id)}
-                className='cursor-pointer'>
-                <HorImg
-                  data={course}
-                  lSubtext={course.rating}
-                  rSubtext={`Rp${course.price},-`}
-                  btnHandler={wishlistBtnHandler}
-                  boolState={course.wishlist}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Empty State Handler */}
-      {dispCourses.length <= 0 && (
-        <div className='mt-16 px-6 pb-6 flex flex-col items-center'>
-          <img className='w-56 h-56' src={EmptyStates} alt='' />
-          <div className='text-center'>
-            <h2 className='text-heading-2'>You wishlist is empty</h2>
-            <p className='font-medium text-gray'>
-              Explore more and make a wish
-            </p>
-          </div>
-          <div className='w-full mt-5'>
-            <Link to='/category/all'>
-              <BtnText text='Browse Categories' />
-            </Link>
-          </div>
-        </div>
-      )}
     </>
   );
 };

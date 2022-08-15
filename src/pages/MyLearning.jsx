@@ -8,7 +8,7 @@ import HorImgProgressBar from '../components/HorImgProgressBar';
 import BtnText from '../components/BtnText';
 
 // Img
-import EmptyStates from '../assets/empty_course.png';
+import EmptyStates from '../assets/empty_my_learning.png';
 
 const MyLearning = (props) => {
   const favCourse = props.myCourse.filter((course) => course.favorite);
