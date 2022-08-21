@@ -1,8 +1,41 @@
-import { Icon } from '@iconify/react';
+import { useState } from 'react';
+
 import CommentCard from './CommentCard';
+import { Icon } from '@iconify/react';
+
+// Avatars
+import { Avatar_1, Avatar_2, Avatar_3, Avatar_4 } from '../utils/getAvatar';
 
 const CommentTab = ({ isComment, setIsComment }) => {
+  const [comments, setComments] = useState([]);
+  const [content, setContent] = useState('');
+
+  const randomizeProfile = () => {
+    const profilePics = [Avatar_1, Avatar_2, Avatar_3, Avatar_4];
+    const colors = [];
+
+    const randPic = Math.floor(Math.random() * profilePics.length);
+    const randColor = Math.floor(Math.random() * profilePics.length);
+
+    return profilePics[randPic];
+  };
+
   const btnClose = (setState) => setState(() => false);
+  const onChangeHandler = (e) => setContent(() => e.target.value);
+  const addCommentHandler = (e, content) => {
+    e.preventDefault();
+    setComments((prev) => [
+      ...prev,
+      {
+        id: +new Date(),
+        profilePics: randomizeProfile(),
+        userId: 'john_doe',
+        userName: 'John Doe',
+        content,
+        createdAt: new Date().toISOString(),
+      },
+    ]);
+  };
 
   return (
     <div
@@ -36,10 +69,15 @@ const CommentTab = ({ isComment, setIsComment }) => {
 
         {/* Footer / Input Comment */}
         <div className='w-full sticky bottom-0 bg-white shadow-navBar'>
-          <form className='flex items-center' action=''>
+          <form
+            onSubmit={addCommentHandler}
+            className='flex items-center'
+            action=''>
             <input
+              onChange={onChangeHandler}
               className='p-4 outline-none w-full'
               type='text'
+              value={content}
               placeholder='Add a comment...'
             />
             <span
